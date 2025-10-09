@@ -137,3 +137,23 @@ teamTabs.forEach(tab => {
         });
     });
 });
+// Projects Show More/Less
+const viewAllBtn = document.getElementById("viewAllBtn");
+const projectsGrid = document.querySelector(".projects-grid");
+let showingAll = false;
+
+viewAllBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    
+    if (!showingAll) {
+        // Show all projects
+        projectsGrid.classList.add("show-all");
+        viewAllBtn.textContent = "Show Less";
+        showingAll = true;
+    } else {
+        // Show only 3 projects
+        projectsGrid.classList.remove("show-all");
+        viewAllBtn.textContent = "View All Projects";
+        showingAll = false;
+    }
+});

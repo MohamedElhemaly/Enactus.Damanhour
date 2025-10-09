@@ -243,7 +243,13 @@ img {
     gap: 30px;
     margin-bottom: 50px;
 }
+.hidden-project {
+    display: none;
+}
 
+.show-all .hidden-project {
+    display: block;
+}
 .project-card {
     background-color: var(--white);
     border-radius: 10px;
