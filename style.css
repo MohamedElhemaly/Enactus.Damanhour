@@ -542,23 +542,26 @@ img {
     padding: 20px;
     background-color: var(--light-gray);
     border-radius: 10px;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
 
 .partner-logo:hover {
     transform: translateY(-5px);
+    border-color: var(--yellow);
+    box-shadow: 0 5px 15px rgba(255, 204, 0, 0.2);
 }
 
 .partner-logo img {
     max-height: 80px;
     width: auto;
-    filter: grayscale(100%);
-    opacity: 0.7;
+    filter: none; /* 🔹 إزالة الفلاتر علشان الألوان الأصلية */
+    opacity: 1; /* 🔹 شفافية كاملة */
     transition: all 0.3s ease;
 }
 
 .partner-logo:hover img {
-    filter: grayscale(0);
+    filter: none; /* 🔹 يفضل من غير فلاتر */
     opacity: 1;
 }
 
