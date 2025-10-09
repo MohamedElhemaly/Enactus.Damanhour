@@ -75,3 +75,65 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.about-item, .project-card, .event-card, .team-member').forEach(el => {
     observer.observe(el);
 });
+// Team Filtering
+;
+const teamGrid = document.querySelector(".team-grid");
+
+teamTabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+        // Remove active class from all tabs
+        teamTabs.forEach(t => t.classList.remove("active"));
+        
+        // Add active class to clicked tab
+        tab.classList.add("active");
+        
+        const category = tab.getAttribute("data-category");
+        
+        // Add compact class when filtering
+        if (category !== "all") {
+            teamGrid.classList.add("compact");
+        } else {
+            teamGrid.classList.remove("compact");
+        }
+        
+        // Show/hide team members based on category
+        teamMembers.forEach(member => {
+            if (category === "all" || member.getAttribute("data-category") === category) {
+                member.style.display = "block";
+            } else {
+                member.style.display = "none";
+            }
+        });
+    });
+});
+// Team Filtering
+
+// Team Filtering
+
+teamTabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+        // Remove active class from all tabs
+        teamTabs.forEach(t => t.classList.remove("active"));
+        
+        // Add active class to clicked tab
+        tab.classList.add("active");
+        
+        const category = tab.getAttribute("data-category");
+        
+        // Add compact class when filtering to specific categories
+        if (category === "leaders" || category === "members" || category === "advisors") {
+            teamGrid.classList.add("compact");
+        } else {
+            teamGrid.classList.remove("compact");
+        }
+        
+        // Show/hide team members based on category
+        teamMembers.forEach(member => {
+            if (category === "all" || category === "all-members" || member.getAttribute("data-category") === category) {
+                member.style.display = "block";
+            } else {
+                member.style.display = "none";
+            }
+        });
+    });
+});

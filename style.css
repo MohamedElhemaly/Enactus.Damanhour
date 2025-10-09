@@ -439,7 +439,17 @@ img {
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    gap: 15px;
+    transition: gap 0.3s ease;;
+}
+/* 🔹 المسافة الأصغر لما نفلتر */
+.team-grid.compact {
+    gap: 8px; /* 🔹 قللنا المسافة من 30px لـ 15px */
+}
+
+/* 🔹 أو لو عاوز تقلل أكتر */
+.team-grid.compact {
+    gap: 10px;
 }
 
 .team-member {
@@ -449,6 +459,8 @@ img {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease;
+    width: 280px; /* 🔹 زودنا من 250 لـ 280 بكسل */
+    margin: 0 auto;
 }
 
 .team-member:hover {
@@ -456,8 +468,10 @@ img {
 }
 
 .member-image {
-    height: 250px;
-    overflow: hidden;
+    height: 267.5px;
+    overflow: hidden;  
+    width: 100%; /* 🔹 تاخد عرض الكارت كامل */
+    object-fit: cover;
 }
 
 .member-image img {
