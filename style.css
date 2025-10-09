@@ -469,6 +469,20 @@ img {
     transform: translateY(-10px);
 }
 
+/* Team Section */
+.hidden-member {
+    display: none;
+}
+
+.show-all-members .hidden-member {
+    display: block;
+}
+
+.team-cta {
+    text-align: center;
+    margin-top: 40px;
+}
+
 .member-image {
     height: 267.5px;
     overflow: hidden;  
@@ -836,4 +850,17 @@ img {
     .team-tab {
         margin: 5px;
     }
+}
+/* Partners Section */
+.hidden-partner {
+    display: none;
+}
+
+.show-all-partners .hidden-partner {
+    display: flex; /* استخدم flex علشان يظبط مع التصميم */
+}
+
+.partners-cta {
+    text-align: center;
+    margin-top: 40px;
 }
