@@ -439,17 +439,13 @@ img {
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    transition: gap 0.3s ease;;
-}
-/* 🔹 المسافة الأصغر لما نفلتر */
-.team-grid.compact {
-    gap: 8px; /* 🔹 قللنا المسافة من 30px لـ 15px */
+    gap: 30px;
+    transition: gap 0.3s ease;
 }
 
-/* 🔹 أو لو عاوز تقلل أكتر */
+/* 🔹 المسافة الأصغر لما نفلتر */
 .team-grid.compact {
-    gap: 10px;
+    gap: 15px;
 }
 
 .team-member {
@@ -459,7 +455,7 @@ img {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease;
-    width: 280px; /* 🔹 زودنا من 250 لـ 280 بكسل */
+    width: 280px;
     margin: 0 auto;
 }
 
@@ -470,7 +466,7 @@ img {
 .member-image {
     height: 267.5px;
     overflow: hidden;  
-    width: 100%; /* 🔹 تاخد عرض الكارت كامل */
+    width: 100%;
     object-fit: cover;
 }
 
@@ -555,13 +551,13 @@ img {
 .partner-logo img {
     max-height: 80px;
     width: auto;
-    filter: none; /* 🔹 إزالة الفلاتر علشان الألوان الأصلية */
-    opacity: 1; /* 🔹 شفافية كاملة */
+    filter: none;
+    opacity: 1;
     transition: all 0.3s ease;
 }
 
 .partner-logo:hover img {
-    filter: none; /* 🔹 يفضل من غير فلاتر */
+    filter: none;
     opacity: 1;
 }
 
@@ -806,6 +802,11 @@ img {
     
     .date-day {
         margin-right: 5px;
+    }
+    
+    .team-member {
+        width: 100%;
+        max-width: 280px;
     }
 }
 
