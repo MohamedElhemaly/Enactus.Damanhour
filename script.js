@@ -157,17 +157,44 @@ const viewAllPartnersBtn = document.getElementById("viewAllPartnersBtn");
 const partnersGrid = document.querySelector(".partners-grid");
 let showingAllPartners = false;
 
+// Function to show only first 5 partners
+function showFirstFivePartners() {
+  const partners = document.querySelectorAll(".partner-logo");
+  let count = 0;
+  partners.forEach((partner) => {
+    if (count < 5) {
+      partner.style.display = "flex";
+      count++;
+    } else {
+      partner.style.display = "none";
+    }
+  });
+}
+
+// Function to show all partners
+function showAllPartners() {
+  const partners = document.querySelectorAll(".partner-logo");
+  partners.forEach((partner) => {
+    partner.style.display = "flex";
+  });
+}
+
 if (viewAllPartnersBtn && partnersGrid) {
+  // Initialize - show first 5 partners on page load
+  showFirstFivePartners();
+
   viewAllPartnersBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
     if (!showingAllPartners) {
       // Show all partners
+      showAllPartners();
       partnersGrid.classList.add("show-all-partners");
       viewAllPartnersBtn.textContent = "Show Less";
       showingAllPartners = true;
     } else {
-      // Show only first 6 partners
+      // Show only first 5 partners
+      showFirstFivePartners();
       partnersGrid.classList.remove("show-all-partners");
       viewAllPartnersBtn.textContent = "View All Partners";
       showingAllPartners = false;
