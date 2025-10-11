@@ -315,7 +315,7 @@ img {
     text-align: center;
 }
 
-/* Events Section */
+/* Events Section - Updated with Images */
 .events {
     padding: 80px 0;
     background-color: var(--white);
@@ -323,36 +323,60 @@ img {
 
 .events-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 30px;
 }
 
 .event-card {
-    display: flex;
-    background-color: var(--light-gray);
+    background-color: var(--white);
     border-radius: 10px;
     overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+}
+
+.event-image {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.event-card:hover .event-image img {
+    transform: scale(1.05);
 }
 
 .event-date {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-width: 80px;
-    background-color: var(--yellow);
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--yellow);
     color: var(--black);
-    padding: 15px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
     font-weight: 700;
+    z-index: 2;
 }
 
 .date-day {
-    font-size: 1.8rem;
+    display: block;
+    font-size: 1.5rem;
     line-height: 1;
 }
 
 .date-month {
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .event-content {
@@ -367,7 +391,7 @@ img {
 .event-info {
     display: flex;
     align-items: center;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-size: 0.9rem;
     color: #666;
 }
@@ -375,10 +399,12 @@ img {
 .event-info i {
     margin-right: 8px;
     color: var(--yellow);
+    width: 16px;
 }
 
 .event-content p {
     margin-bottom: 15px;
+    line-height: 1.6;
 }
 
 .event-button {
@@ -395,6 +421,18 @@ img {
 .event-button:hover {
     background-color: var(--black);
     color: var(--white);
+}
+
+/* Responsive for Events */
+@media (max-width: 768px) {
+    .events-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .event-card {
+        max-width: 400px;
+        margin: 0 auto;
+    }
 }
 
 /* Team Section */

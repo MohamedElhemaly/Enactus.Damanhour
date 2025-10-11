@@ -30,6 +30,7 @@
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://enactusdamanhour.site">
+    <link rel="stylesheet" href="style.css">
 
     <!-- Structured Data / JSON-LD -->
     <script type="application/ld+json">
@@ -61,14 +62,12 @@
     <title>Enactus Damanhour University | Entrepreneurial Action for Social Impact</title>
     <link rel="icon" type="image/png" href="/images/logo.png">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap"
         rel="stylesheet">
+
 </head>
-
-
 
 <body>
     <!-- Header & Navigation -->
@@ -163,7 +162,6 @@
                 communities</p>
 
             <div class="projects-grid">
-                <!-- أول 3 مشاريع تظهر -->
                 <div class="project-card">
                     <div class="project-image">
                         <img src="images/saadny.jpg"
@@ -234,102 +232,10 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- المشاريع الإضافية (تختفي أولاً) -->
-                <div class="project-card hidden-project">
-                    <div class="project-image">
-                        <img src="images/ecoplast.jpg"
-                            alt="Ecoplast Project - Recycling plastic waste into eco-friendly bricks" loading="lazy">
-                    </div>
-                    <div class="project-content">
-                        <h3>Ecoplast - Enactus Damanhour</h3>
-                        <p>Ecoplast tackles plastic waste by recycling it into new products like eco-friendly bricks. We
-                            empower communities by creating jobs and providing technical training, increasing workers'
-                            income by 350%.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <span class="stat-number">600+</span>
-                                <span class="stat-label">Jobs Created</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">350%</span>
-                                <span class="stat-label">Income Increase</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card hidden-project">
-                    <div class="project-image">
-                        <img src="images/organalia.jpg"
-                            alt="Organalia Project - Organic fertilizer from Nile rose and animal waste" loading="lazy">
-                    </div>
-                    <div class="project-content">
-                        <h3>Organalia - Enactus Damanhour</h3>
-                        <p>Organalia produces organic fertilizer from Nile rose and animal waste to reduce environmental
-                            impact. We empower communities by creating jobs and providing technical training.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <span class="stat-number">300+</span>
-                                <span class="stat-label">Lives Saved</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">27</span>
-                                <span class="stat-label">Village Reached</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card hidden-project">
-                    <div class="project-image">
-                        <img src="images/brickstick.jpg"
-                            alt="Brickstick Project - Transforming plastic waste into construction materials"
-                            loading="lazy">
-                    </div>
-                    <div class="project-content">
-                        <h3>Brickstick - Enactus Damanhour</h3>
-                        <p>Brickstick transforms plastic waste into eco-friendly bricks, offering a sustainable
-                            construction material. We partner with factories to scale production in Egypt.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <span class="stat-number">80,000+</span>
-                                <span class="stat-label">Plastic Bricks</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">160+</span>
-                                <span class="stat-label">Families Impacting</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card hidden-project">
-                    <div class="project-image">
-                        <img src="images/mushraws.jpg"
-                            alt="Mushraws Project - Transforming rice straw waste into valuable products"
-                            loading="lazy">
-                    </div>
-                    <div class="project-content">
-                        <h3>Mushraws - Enactus Damanhour</h3>
-                        <p>Mushraws transforms rice straw waste into valuable products like mushrooms, animal feed, and
-                            organic fertilizer. Our zero-waste model prevents harmful burning in Egyptian farms.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <span class="stat-number">230%</span>
-                                <span class="stat-label">Income Increase</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">210</span>
-                                <span class="stat-label">Families Impacting</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="projects-cta">
-                <a href="#projects" class="cta-button secondary" id="viewAllBtn">View All Enactus Projects</a>
+                <a href="#projects" class="cta-button secondary">View All Enactus Projects</a>
             </div>
         </div>
     </section>
@@ -342,9 +248,13 @@
 
             <div class="events-container">
                 <div class="event-card">
-                    <div class="event-date">
-                        <span class="date-day">18</span>
-                        <span class="date-month">Oct</span>
+                    <div class="event-image">
+                        <img src="images/expand-your-horizon.jpg" alt="Expand Your Horizon Event by Enactus Damanhour"
+                            loading="lazy">
+                        <div class="event-date">
+                            <span class="date-day">18</span>
+                            <span class="date-month">Oct</span>
+                        </div>
                     </div>
                     <div class="event-content">
                         <h3>Expand Your Horizon - Enactus Damanhour</h3>
@@ -360,25 +270,36 @@
                 </div>
 
                 <div class="event-card">
-                    <div class="event-date">
-                        <span class="date-day">05</span>
-                        <span class="date-month">Nov</span>
+                    <div class="event-image">
+                        <img src="images/coderatechBootcamp.jpg" alt="Community Impact Day by Enactus Damanhour"
+                            loading="lazy">
+                        <div class="event-date">
+                            <span class="date-day">12</span>
+                            <span class="date-month">Oct</span>
+                        </div>
                     </div>
                     <div class="event-content">
-                        <h3>Community Impact Day - Enactus Damanhour</h3>
-                        <p class="event-info"><i class="fas fa-clock" aria-hidden="true"></i> 8:00 AM - 4:00 PM</p>
-                        <p class="event-info"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> El Mahmoudia
-                            Village</p>
-                        <p>Volunteer with Enactus Damanhour as we implement our projects in local Egyptian communities.
+                        <h3>CoderaTech Bootcamp - Enactus Damanhour</h3>
+                        <p class="event-info"><i class="fas fa-clock" aria-hidden="true"></i> 3:00 PM - 5:00 PM</p>
+                        <p class="event-info"><i class="fas fa-map-marker-alt" aria-hidden="true"></i>Sharks ,Damanhour
                         </p>
-                        <a href="#" class="event-button">Join Enactus Event</a>
+                        <p>CodeRatech Bootcamp trained 50 people in web development, graduating 40 with industry-ready
+                            skills in HTML, CSS, and JavaScript. The program bridged academia and industry needs,
+                            empowering developers for the digital economy.
+                        </p>
+                        <a href="https://www.linkedin.com/posts/enactus-damnhour-university_enactusdamanhour-coderatech-bootcamp-activity-7382734451459522561-_Mtn?utm_source=share&utm_medium=member_android&rcm=ACoAAFOv5ZsBmiG8a25Ez6PgW-NZoyWq5Nk9pTQ "
+                            class="event-button">Learn About Enactus Event</a>
                     </div>
                 </div>
 
                 <div class="event-card">
-                    <div class="event-date">
-                        <span class="date-day">04</span>
-                        <span class="date-month">Oct</span>
+                    <div class="event-image">
+                        <img src="images/techne-summit.jpg" alt="Techne Summit Alexandria with Enactus Damanhour"
+                            loading="lazy">
+                        <div class="event-date">
+                            <span class="date-day">04</span>
+                            <span class="date-month">Oct</span>
+                        </div>
                     </div>
                     <div class="event-content">
                         <h3>Techne Summit Alexandria - Enactus Damanhour</h3>
@@ -386,7 +307,8 @@
                         <p class="event-info"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Alexandria, Egypt
                         </p>
                         <p>Join Enactus Damanhour at Techne Summit Alexandria, a leading tech and entrepreneurship event
-                            connecting innovators, investors, and startups in Egypt.</p>
+                            connecting innovators, investors, and startups in Egypt. Network with industry leaders and
+                            discover new opportunities.</p>
                         <a href="https://www.facebook.com/share/p/16NGZPSdSP/" class="event-button">Learn About Enactus
                             Event</a>
                     </div>
@@ -395,16 +317,19 @@
         </div>
     </section>
 
+
     <!-- Team Section -->
     <section id="team" class="team">
         <div class="container">
             <h2 class="section-title">Enactus Damanhour Team</h2>
-            <p class="section-subtitle">The passionate students and advisors behind Enactus Damanhour University impact
+            <p class="section-subtitle">The passionate students and advisors behind Enactus
+                Damanhour University impact
             </p>
 
             <div class="team-container">
                 <div class="team-tabs">
-                    <button class="team-tab active" data-category="leaders">Enactus Team Leaders</button>
+                    <button class="team-tab active" data-category="leaders">Enactus Team
+                        Leaders</button>
                     <button class="team-tab" data-category="all-members">All Enactus Team</button>
                     <button class="team-tab" data-category="advisors">Enactus Advisors</button>
                 </div>
@@ -581,7 +506,8 @@
 
                 <!-- زر View All للفريق -->
                 <div class="team-cta">
-                    <a href="#team" class="cta-button secondary" id="viewAllTeamBtn">View All Enactus Team</a>
+                    <a href="#team" class="cta-button secondary" id="viewAllTeamBtn">View All
+                        Enactus Team</a>
                 </div>
             </div>
         </div>
@@ -591,7 +517,8 @@
     <section id="partners" class="partners">
         <div class="container">
             <h2 class="section-title">Enactus Damanhour Partners & Sponsors</h2>
-            <p class="section-subtitle">Organizations supporting Enactus Damanhour University mission and impact</p>
+            <p class="section-subtitle">Organizations supporting Enactus Damanhour University
+                mission and impact</p>
 
             <div class="partners-grid">
                 <!-- أول 5 شركاء يظهروا -->
@@ -655,7 +582,8 @@
             </div>
 
             <div class="partners-cta">
-                <a href="#partners" class="cta-button secondary" id="viewAllPartnersBtn">View All Enactus Partners</a>
+                <a href="#partners" class="cta-button secondary" id="viewAllPartnersBtn">View All
+                    Enactus Partners</a>
             </div>
         </div>
     </section>
@@ -748,7 +676,8 @@
                     <div class="footer-logo">
                         <img src="images/logo.png" alt="Enactus Damanhour University Logo" width="100" height="60">
                     </div>
-                    <p>Enactus Damanhour University - Transforming lives through entrepreneurial action in Egypt</p>
+                    <p>Enactus Damanhour University - Transforming lives through entrepreneurial
+                        action in Egypt</p>
                 </div>
 
                 <div class="footer-section">
