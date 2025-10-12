@@ -18,189 +18,204 @@ if (hamburger && navMenu) {
   );
 }
 
-// Projects Show More/Less
-const viewAllBtn = document.getElementById("viewAllBtn");
-const projectsGrid = document.querySelector(".projects-grid");
-let showingAll = false;
+// Projects Show More/Less - FIXED
+document.addEventListener("DOMContentLoaded", function () {
+  const viewAllBtn = document.getElementById("viewAllBtn");
+  const projectsGrid = document.querySelector(".projects-grid");
+  let showingAll = false;
 
-if (viewAllBtn && projectsGrid) {
-  viewAllBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+  console.log("View All Button:", viewAllBtn); // للتصحيح
+  console.log("Projects Grid:", projectsGrid); // للتصحيح
 
-    if (!showingAll) {
-      // Show all projects
-      projectsGrid.classList.add("show-all");
-      viewAllBtn.textContent = "Show Less";
-      showingAll = true;
-    } else {
-      // Show only 3 projects
-      projectsGrid.classList.remove("show-all");
-      viewAllBtn.textContent = "View All Projects";
-      showingAll = false;
-    }
-  });
-}
+  if (viewAllBtn && projectsGrid) {
+    viewAllBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      console.log("Button clicked!"); // للتصحيح
+
+      if (!showingAll) {
+        // Show all projects
+        projectsGrid.classList.add("show-all");
+        viewAllBtn.textContent = "Show Less";
+        showingAll = true;
+        console.log("Showing all projects"); // للتصحيح
+      } else {
+        // Show only first 3 projects
+        projectsGrid.classList.remove("show-all");
+        viewAllBtn.textContent = "View All Enactus Projects";
+        showingAll = false;
+        console.log("Showing only 3 projects"); // للتصحيح
+      }
+    });
+  }
+});
 
 // Team Show More/Less
-const viewAllTeamBtn = document.getElementById("viewAllTeamBtn");
-const teamGrid = document.querySelector(".team-grid");
-const teamTabs = document.querySelectorAll(".team-tab");
-const teamMembers = document.querySelectorAll(".team-member");
-let showingAllTeam = false;
+document.addEventListener("DOMContentLoaded", function () {
+  const viewAllTeamBtn = document.getElementById("viewAllTeamBtn");
+  const teamGrid = document.querySelector(".team-grid");
+  const teamTabs = document.querySelectorAll(".team-tab");
+  const teamMembers = document.querySelectorAll(".team-member");
+  let showingAllTeam = false;
 
-// Function to show only first 3 members
-function showFirstThreeMembers(category) {
-  let count = 0;
-  teamMembers.forEach((member) => {
-    if (
-      (category === "all-members" ||
-        member.getAttribute("data-category") === category) &&
-      count < 3
-    ) {
-      member.style.display = "block";
-      count++;
-    } else {
-      member.style.display = "none";
-    }
-  });
-}
-
-// Function to show all members
-function showAllMembers(category) {
-  teamMembers.forEach((member) => {
-    if (
-      category === "all-members" ||
-      member.getAttribute("data-category") === category
-    ) {
-      member.style.display = "block";
-    } else {
-      member.style.display = "none";
-    }
-  });
-}
-
-if (viewAllTeamBtn && teamGrid) {
-  viewAllTeamBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    const activeTab = document.querySelector(".team-tab.active");
-    const category = activeTab.getAttribute("data-category");
-
-    if (!showingAllTeam) {
-      // Show all team members
-      showAllMembers(category);
-      teamGrid.classList.add("show-all-members");
-      viewAllTeamBtn.textContent = "Show Less";
-      showingAllTeam = true;
-    } else {
-      // Show only first 3 members
-      showFirstThreeMembers(category);
-      teamGrid.classList.remove("show-all-members");
-      viewAllTeamBtn.textContent = "View All Team";
-      showingAllTeam = false;
-    }
-  });
-}
-
-// Team Filtering
-if (teamTabs.length > 0) {
-  teamTabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      // Remove active class from all tabs
-      teamTabs.forEach((t) => t.classList.remove("active"));
-
-      // Add active class to clicked tab
-      tab.classList.add("active");
-
-      const category = tab.getAttribute("data-category");
-
-      // Reset view all state when switching tabs
-      if (teamGrid) {
-        teamGrid.classList.remove("show-all-members");
+  // Function to show only first 3 members
+  function showFirstThreeMembers(category) {
+    let count = 0;
+    teamMembers.forEach((member) => {
+      if (
+        (category === "all-members" ||
+          member.getAttribute("data-category") === category) &&
+        count < 3
+      ) {
+        member.style.display = "block";
+        count++;
+      } else {
+        member.style.display = "none";
       }
-      if (viewAllTeamBtn) {
-        showingAllTeam = false;
-
-        // Update button text based on category
-        if (category === "leaders") {
-          viewAllTeamBtn.textContent = "View All Team Leaders";
-          viewAllTeamBtn.style.display = "block";
-        } else if (category === "all-members") {
-          viewAllTeamBtn.textContent = "View All Team";
-          viewAllTeamBtn.style.display = "block";
-        } else if (category === "advisors") {
-          viewAllTeamBtn.style.display = "none";
-        }
-      }
-
-      // Add compact class when filtering
-      if (teamGrid) {
-        if (
-          category === "leaders" ||
-          category === "all-members" ||
-          category === "advisors"
-        ) {
-          teamGrid.classList.add("compact");
-        } else {
-          teamGrid.classList.remove("compact");
-        }
-      }
-
-      // Show only first 3 members when switching tabs
-      showFirstThreeMembers(category);
     });
-  });
-}
+  }
+
+  // Function to show all members
+  function showAllMembers(category) {
+    teamMembers.forEach((member) => {
+      if (
+        category === "all-members" ||
+        member.getAttribute("data-category") === category
+      ) {
+        member.style.display = "block";
+      } else {
+        member.style.display = "none";
+      }
+    });
+  }
+
+  if (viewAllTeamBtn && teamGrid) {
+    viewAllTeamBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const activeTab = document.querySelector(".team-tab.active");
+      const category = activeTab.getAttribute("data-category");
+
+      if (!showingAllTeam) {
+        // Show all team members
+        showAllMembers(category);
+        teamGrid.classList.add("show-all-members");
+        viewAllTeamBtn.textContent = "Show Less";
+        showingAllTeam = true;
+      } else {
+        // Show only first 3 members
+        showFirstThreeMembers(category);
+        teamGrid.classList.remove("show-all-members");
+        viewAllTeamBtn.textContent = "View All Enactus Team";
+        showingAllTeam = false;
+      }
+    });
+  }
+
+  // Team Filtering
+  if (teamTabs.length > 0) {
+    teamTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        // Remove active class from all tabs
+        teamTabs.forEach((t) => t.classList.remove("active"));
+
+        // Add active class to clicked tab
+        tab.classList.add("active");
+
+        const category = tab.getAttribute("data-category");
+
+        // Reset view all state when switching tabs
+        if (teamGrid) {
+          teamGrid.classList.remove("show-all-members");
+        }
+        if (viewAllTeamBtn) {
+          showingAllTeam = false;
+
+          // Update button text based on category
+          if (category === "leaders") {
+            viewAllTeamBtn.textContent = "View All Enactus Team Leaders";
+            viewAllTeamBtn.style.display = "block";
+          } else if (category === "all-members") {
+            viewAllTeamBtn.textContent = "View All Enactus Team";
+            viewAllTeamBtn.style.display = "block";
+          } else if (category === "advisors") {
+            viewAllTeamBtn.style.display = "none";
+          }
+        }
+
+        // Add compact class when filtering
+        if (teamGrid) {
+          if (
+            category === "leaders" ||
+            category === "all-members" ||
+            category === "advisors"
+          ) {
+            teamGrid.classList.add("compact");
+          } else {
+            teamGrid.classList.remove("compact");
+          }
+        }
+
+        // Show only first 3 members when switching tabs
+        showFirstThreeMembers(category);
+      });
+    });
+  }
+
+  // Initialize - Show first 3 team leaders on page load
+  showFirstThreeMembers("leaders");
+});
 
 // Partners Show More/Less
-const viewAllPartnersBtn = document.getElementById("viewAllPartnersBtn");
-const partnersGrid = document.querySelector(".partners-grid");
-let showingAllPartners = false;
+document.addEventListener("DOMContentLoaded", function () {
+  const viewAllPartnersBtn = document.getElementById("viewAllPartnersBtn");
+  const partnersGrid = document.querySelector(".partners-grid");
+  let showingAllPartners = false;
 
-// Function to show only first 5 partners
-function showFirstFivePartners() {
-  const partners = document.querySelectorAll(".partner-logo");
-  let count = 0;
-  partners.forEach((partner) => {
-    if (count < 5) {
+  // Function to show only first 5 partners
+  function showFirstFivePartners() {
+    const partners = document.querySelectorAll(".partner-logo");
+    let count = 0;
+    partners.forEach((partner) => {
+      if (count < 5) {
+        partner.style.display = "flex";
+        count++;
+      } else {
+        partner.style.display = "none";
+      }
+    });
+  }
+
+  // Function to show all partners
+  function showAllPartners() {
+    const partners = document.querySelectorAll(".partner-logo");
+    partners.forEach((partner) => {
       partner.style.display = "flex";
-      count++;
-    } else {
-      partner.style.display = "none";
-    }
-  });
-}
+    });
+  }
 
-// Function to show all partners
-function showAllPartners() {
-  const partners = document.querySelectorAll(".partner-logo");
-  partners.forEach((partner) => {
-    partner.style.display = "flex";
-  });
-}
+  if (viewAllPartnersBtn && partnersGrid) {
+    // Initialize - show first 5 partners on page load
+    showFirstFivePartners();
 
-if (viewAllPartnersBtn && partnersGrid) {
-  // Initialize - show first 5 partners on page load
-  showFirstFivePartners();
+    viewAllPartnersBtn.addEventListener("click", (e) => {
+      e.preventDefault();
 
-  viewAllPartnersBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    if (!showingAllPartners) {
-      // Show all partners
-      showAllPartners();
-      partnersGrid.classList.add("show-all-partners");
-      viewAllPartnersBtn.textContent = "Show Less";
-      showingAllPartners = true;
-    } else {
-      // Show only first 5 partners
-      showFirstFivePartners();
-      partnersGrid.classList.remove("show-all-partners");
-      viewAllPartnersBtn.textContent = "View All Partners";
-      showingAllPartners = false;
-    }
-  });
-}
+      if (!showingAllPartners) {
+        // Show all partners
+        showAllPartners();
+        partnersGrid.classList.add("show-all-partners");
+        viewAllPartnersBtn.textContent = "Show Less";
+        showingAllPartners = true;
+      } else {
+        // Show only first 5 partners
+        showFirstFivePartners();
+        partnersGrid.classList.remove("show-all-partners");
+        viewAllPartnersBtn.textContent = "View All Enactus Partners";
+        showingAllPartners = false;
+      }
+    });
+  }
+});
 
 // Smooth Scrolling for Navigation Links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -240,8 +255,3 @@ document
   .forEach((el) => {
     observer.observe(el);
   });
-
-// Initialize - Show first 3 team leaders on page load
-document.addEventListener("DOMContentLoaded", function () {
-  showFirstThreeMembers("leaders");
-});
