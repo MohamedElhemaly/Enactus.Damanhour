@@ -37,7 +37,7 @@
 
     <title>Enactus Damanhour University | Social Impact & Entrepreneurial Action</title>
 
-    <!-- Favicon Section - OPTIMIZED FOR GOOGLE -->
+    <!-- Favicon Section -->
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_io/favicon-16x16.png">
@@ -46,21 +46,37 @@
     <meta name="msapplication-TileColor" content="#ffcc00">
     <meta name="theme-color" content="#ffcc00">
 
+    <!-- Performance Optimizations -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="width">
 
     <!-- Preload Critical Resources -->
-    <link rel="preload" href="style.css" as="style">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <noscript>
+        <link rel="stylesheet" href="style.css">
+    </noscript>
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+
+    <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap"
+            rel="stylesheet">
+    </noscript>
 
-    <!-- Structured Data / JSON-LD -->
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -94,17 +110,16 @@
 </head>
 
 <body>
-    <!-- Header & Navigation - FIXED POSITION -->
+    <!-- Header & Navigation -->
     <header>
         <nav class="navbar">
             <div class="nav-container">
                 <a href="#" class="nav-logo" aria-label="Enactus Damanhour Home">
-                    <img src="images/logo.png" alt="Enactus Damanhour University Logo" width="120" height="80">
+                    <img src="images/logo.png" alt="Enactus Damanhour University Logo" width="120" height="50"
+                        loading="eager">
                 </a>
+
                 <ul class="nav-menu">
-                    <li class="nav-item">
-                        <!-- <a href="#" class="nav-link">Home</a> -->
-                    </li>
                     <li class="nav-item">
                         <a href="#about" class="nav-link">About Enactus</a>
                     </li>
@@ -124,11 +139,12 @@
                         <a href="#contact" class="nav-link donate-btn">Contact Enactus</a>
                     </li>
                 </ul>
-                <div class="hamburger" aria-label="Toggle navigation menu">
+
+                <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
-                </div>
+                </button>
             </div>
         </nav>
     </header>
@@ -186,12 +202,12 @@
                 communities</p>
 
             <div class="projects-grid">
-                <!-- أول 3 مشاريع تظهر -->
+                <!-- First 3 projects visible -->
                 <div class="project-card">
                     <div class="project-image">
                         <img src="images/saadny.jpg"
                             alt="Saadany Project - Empowering deaf and mute individuals through job opportunities"
-                            loading="lazy">
+                            loading="lazy" width="400" height="200">
                     </div>
                     <div class="project-content">
                         <h3>Saadany - Enactus Damanhour</h3>
@@ -215,7 +231,7 @@
                     <div class="project-image">
                         <img src="images/margosa.jpg"
                             alt="Margosa Project - Natural pesticides from neem extracts for sustainable farming"
-                            loading="lazy">
+                            loading="lazy" width="400" height="200">
                     </div>
                     <div class="project-content">
                         <h3>Margosa - Enactus Damanhour</h3>
@@ -238,7 +254,8 @@
                 <div class="project-card">
                     <div class="project-image">
                         <img src="images/vetsea.jpg"
-                            alt="VetSea Project - Natural algae-based treatments for cattle health" loading="lazy">
+                            alt="VetSea Project - Natural algae-based treatments for cattle health" loading="lazy"
+                            width="400" height="200">
                     </div>
                     <div class="project-content">
                         <h3>VetSea - Enactus Damanhour</h3>
@@ -258,11 +275,12 @@
                     </div>
                 </div>
 
-                <!-- المشاريع الإضافية (تختفي أولاً) -->
+                <!-- Hidden projects -->
                 <div class="project-card hidden-project">
                     <div class="project-image">
                         <img src="images/ecoplast.jpg"
-                            alt="Ecoplast Project - Recycling plastic waste into eco-friendly bricks" loading="lazy">
+                            alt="Ecoplast Project - Recycling plastic waste into eco-friendly bricks" loading="lazy"
+                            width="400" height="200">
                     </div>
                     <div class="project-content">
                         <h3>Ecoplast - Enactus Damanhour</h3>
@@ -285,7 +303,8 @@
                 <div class="project-card hidden-project">
                     <div class="project-image">
                         <img src="images/organalia.jpg"
-                            alt="Organalia Project - Organic fertilizer from Nile rose and animal waste" loading="lazy">
+                            alt="Organalia Project - Organic fertilizer from Nile rose and animal waste" loading="lazy"
+                            width="400" height="200">
                     </div>
                     <div class="project-content">
                         <h3>Organalia - Enactus Damanhour</h3>
@@ -308,7 +327,7 @@
                     <div class="project-image">
                         <img src="images/brickstick.jpg"
                             alt="Brickstick Project - Transforming plastic waste into construction materials"
-                            loading="lazy">
+                            loading="lazy" width="400" height="200">
                     </div>
                     <div class="project-content">
                         <h3>Brickstick - Enactus Damanhour</h3>
@@ -330,8 +349,8 @@
                 <div class="project-card hidden-project">
                     <div class="project-image">
                         <img src="images/mushraws.jpg"
-                            alt="Mushraws Project - Transforming rice straw waste into valuable products"
-                            loading="lazy">
+                            alt="Mushraws Project - Transforming rice straw waste into valuable products" loading="lazy"
+                            width="400" height="200">
                     </div>
                     <div class="project-content">
                         <h3>Mushraws - Enactus Damanhour</h3>
@@ -366,7 +385,8 @@
             <div class="events-container">
                 <div class="event-card">
                     <div class="event-image">
-                        <img src="images/sus3.jpg" alt="Techne Summit Alexandria with Enactus Damanhour" loading="lazy">
+                        <img src="images/sus3.jpg" alt="Techne Summit Alexandria with Enactus Damanhour" loading="lazy"
+                            width="400" height="200">
                         <div class="event-date">
                             <span class="date-day">21</span>
                             <span class="date-month">Oct</span>
@@ -393,7 +413,7 @@
                 <div class="event-card">
                     <div class="event-image">
                         <img src="images/expand-your-horizon.jpg" alt="Expand Your Horizon Event by Enactus Damanhour"
-                            loading="lazy">
+                            loading="lazy" width="400" height="200">
                         <div class="event-date">
                             <span class="date-day">18</span>
                             <span class="date-month">Oct</span>
@@ -418,7 +438,7 @@
                 <div class="event-card">
                     <div class="event-image">
                         <img src="images/coderatechBootcamp.jpg" alt="Community Impact Day by Enactus Damanhour"
-                            loading="lazy">
+                            loading="lazy" width="400" height="200">
                         <div class="event-date">
                             <span class="date-day">12</span>
                             <span class="date-month">Oct</span>
@@ -461,11 +481,11 @@
                 </div>
 
                 <div class="team-grid">
-                    <!-- Team Leaders (أول 4 يظهروا) -->
+                    <!-- Team Leaders -->
                     <div class="team-member" data-category="leaders">
                         <div class="member-image">
                             <img src="images/president.jpg" alt="Mohamed Zewail - Enactus Damanhour Team President"
-                                loading="lazy">
+                                loading="lazy" width="280" height="267">
                         </div>
                         <div class="member-info">
                             <h3>Mohamed Zewail</h3>
@@ -482,7 +502,7 @@
                     <div class="team-member" data-category="leaders">
                         <div class="member-image">
                             <img src="images/naeem.jpg" alt="Mahmoud Naeem - Enactus Damanhour Vice President"
-                                loading="lazy">
+                                loading="lazy" width="280" height="267">
                         </div>
                         <div class="member-info">
                             <h3>Mahmoud Naeem</h3>
@@ -499,7 +519,7 @@
                     <div class="team-member" data-category="leaders">
                         <div class="member-image">
                             <img src="images/yasmin.jpg" alt="Yasmin Ali - Enactus Damanhour Vice President"
-                                loading="lazy">
+                                loading="lazy" width="280" height="267">
                         </div>
                         <div class="member-info">
                             <h3>Yasmin Ali</h3>
@@ -516,7 +536,7 @@
                     <div class="team-member hidden-member" data-category="leaders">
                         <div class="member-image">
                             <img src="images/aboalkhair.jpg" alt="Saif Aboalkhair - Enactus Damanhour Head Project"
-                                loading="lazy">
+                                loading="lazy" width="280" height="267">
                         </div>
                         <div class="member-info">
                             <h3>Saif Aboalkhair</h3>
@@ -529,11 +549,11 @@
                         </div>
                     </div>
 
-                    <!-- باقي Team Leaders (يختفوا أولاً) -->
+                    <!-- More Team Leaders -->
                     <div class="team-member hidden-member" data-category="leaders">
                         <div class="member-image">
-                            <img src="images/samira.jpg" alt="Samira Elshaer - Enactus Damanhour Head HR"
-                                loading="lazy">
+                            <img src="images/samira.jpg" alt="Samira Elshaer - Enactus Damanhour Head HR" loading="lazy"
+                                width="280" height="267">
                         </div>
                         <div class="member-info">
                             <h3>Samira Elshaer</h3>
@@ -550,7 +570,7 @@
                     <div class="team-member" data-category="leaders">
                         <div class="member-image">
                             <img src="images/habiba.jpg" alt="Habiba Eltetwany - Enactus Damanhour Head Multimedia"
-                                loading="lazy">
+                                loading="lazy" width="280" height="267">
                         </div>
                         <div class="member-info">
                             <h3>Habiba Eltetwany</h3>
@@ -567,7 +587,7 @@
                     <div class="team-member hidden-member" data-category="leaders">
                         <div class="member-image">
                             <img src="images/fayez.jpg" alt="Fayez kenawy - Enactus Damanhour Head Marketing"
-                                loading="lazy">
+                                loading="lazy" width="280" height="267">
                         </div>
                         <div class="member-info">
                             <h3>Fayez kenawy</h3>
@@ -584,7 +604,7 @@
                     <div class="team-member hidden-member" data-category="leaders">
                         <div class="member-image">
                             <img src="images/gannah.jpg" alt="Ganna Salah - Enactus Damanhour Head Presentation"
-                                loading="lazy">
+                                loading="lazy" width="280" height="267">
                         </div>
                         <div class="member-info">
                             <h3>Gannah Salah</h3>
@@ -600,7 +620,8 @@
 
                     <div class="team-member hidden-member" data-category="leaders">
                         <div class="member-image">
-                            <img src="images/mariem.jpg" alt="Mariem Oda - Enactus Damanhour Head PR" loading="lazy">
+                            <img src="images/mariem.jpg" alt="Mariem Oda - Enactus Damanhour Head PR" loading="lazy"
+                                width="280" height="267">
                         </div>
                         <div class="member-info">
                             <h3>Mariem Oda</h3>
@@ -617,7 +638,7 @@
                     <div class="team-member" data-category="advisors">
                         <div class="member-image">
                             <img src="images/advisor.jpg" alt="Dr. Khaled Rohouma - Enactus Damanhour Faculty Advisor"
-                                loading="lazy">
+                                loading="lazy" width="280" height="267">
                         </div>
                         <div class="member-info">
                             <h3>Dr. Khaled Rohouma</h3>
@@ -631,7 +652,7 @@
                     </div>
                 </div>
 
-                <!-- زر View All للفريق -->
+                <!-- View All Team Button -->
                 <div class="team-cta">
                     <a href="#team" class="cta-button secondary" id="viewAllTeamBtn">View All
                         Enactus Team</a>
@@ -648,63 +669,80 @@
                 mission and impact</p>
 
             <div class="partners-grid">
-                <!-- أول 5 شركاء يظهروا -->
+                <!-- First 5 partners visible -->
                 <div class="partner-logo">
-                    <img src="images/sharks.jpg" alt="Sharks - Enactus Damanhour Partner" loading="lazy">
+                    <img src="images/sharks.jpg" alt="Sharks - Enactus Damanhour Partner" loading="lazy" width="150"
+                        height="80">
                 </div>
                 <div class="partner-logo">
-                    <img src="images/xacademia.jpg" alt="XAcademia - Enactus Damanhour Partner" loading="lazy">
+                    <img src="images/xacademia.jpg" alt="XAcademia - Enactus Damanhour Partner" loading="lazy"
+                        width="150" height="80">
                 </div>
                 <div class="partner-logo">
-                    <img src="images/creativa.jpg" alt="Creativa - Enactus Damanhour Partner" loading="lazy">
+                    <img src="images/creativa.jpg" alt="Creativa - Enactus Damanhour Partner" loading="lazy" width="150"
+                        height="80">
                 </div>
                 <div class="partner-logo">
-                    <img src="images/prse.jpg" alt="PRSE - Enactus Damanhour Partner" loading="lazy">
+                    <img src="images/prse.jpg" alt="PRSE - Enactus Damanhour Partner" loading="lazy" width="150"
+                        height="80">
                 </div>
                 <div class="partner-logo">
-                    <img src="images/oxford.jpg" alt="Oxford - Enactus Damanhour Partner" loading="lazy">
+                    <img src="images/oxford.jpg" alt="Oxford - Enactus Damanhour Partner" loading="lazy" width="150"
+                        height="80">
                 </div>
 
-                <!-- باقي الشركاء (يختفوا أولاً) -->
+                <!-- Hidden partners -->
                 <div class="partner-logo hidden-partner">
-                    <img src="images/coderaTech.jpg" alt="Codera Tech - Enactus Damanhour Partner" loading="lazy">
+                    <img src="images/coderaTech.jpg" alt="Codera Tech - Enactus Damanhour Partner" loading="lazy"
+                        width="150" height="80">
                 </div>
                 <div class="partner-logo hidden-partner">
-                    <img src="images/britchCouncil.jpg" alt="British Council - Enactus Damanhour Partner"
-                        loading="lazy">
+                    <img src="images/britchCouncil.jpg" alt="British Council - Enactus Damanhour Partner" loading="lazy"
+                        width="150" height="80">
                 </div>
                 <div class="partner-logo hidden-partner">
-                    <img src="images/europeanUnion.jpg" alt="European Union - Enactus Damanhour Partner" loading="lazy">
+                    <img src="images/europeanUnion.jpg" alt="European Union - Enactus Damanhour Partner" loading="lazy"
+                        width="150" height="80">
                 </div>
                 <div class="partner-logo hidden-partner">
-                    <img src="images/german.jpg" alt="German Embassy - Enactus Damanhour Partner" loading="lazy">
+                    <img src="images/german.jpg" alt="German Embassy - Enactus Damanhour Partner" loading="lazy"
+                        width="150" height="80">
                 </div>
                 <div class="partner-logo hidden-partner">
-                    <img src="images/giz.jpg" alt="GIZ - Enactus Damanhour Partner" loading="lazy">
+                    <img src="images/giz.jpg" alt="GIZ - Enactus Damanhour Partner" loading="lazy" width="150"
+                        height="80">
                 </div>
                 <div class="partner-logo hidden-partner">
-                    <img src="images/hermopoaita.jpg" alt="Hermopoaita - Enactus Damanhour Partner" loading="lazy">
+                    <img src="images/hermopoaita.jpg" alt="Hermopoaita - Enactus Damanhour Partner" loading="lazy"
+                        width="150" height="80">
                 </div>
                 <div class="partner-logo hidden-partner">
-                    <img src="images/irc.jpg" alt="IRC - Enactus Damanhour Partner" loading="lazy">
+                    <img src="images/irc.jpg" alt="IRC - Enactus Damanhour Partner" loading="lazy" width="150"
+                        height="80">
                 </div>
                 <div class="partner-logo hidden-partner">
-                    <img src="images/circle.jpg" alt="Circle - Enactus Damanhour Partner" loading="lazy">
+                    <img src="images/circle.jpg" alt="Circle - Enactus Damanhour Partner" loading="lazy" width="150"
+                        height="80">
                 </div>
                 <div class="partner-logo hidden-partner">
-                    <img src="images/picky.jpg" alt="Picky - Enactus Damanhour Partner" loading="lazy">
+                    <img src="images/picky.jpg" alt="Picky - Enactus Damanhour Partner" loading="lazy" width="150"
+                        height="80">
                 </div>
                 <div class="partner-logo hidden-partner">
-                    <img src="images/techne.jpg" alt="Techne - Enactus Damanhour Partner" loading="lazy">
+                    <img src="images/techne.jpg" alt="Techne - Enactus Damanhour Partner" loading="lazy" width="150"
+                        height="80">
                 </div>
                 <div class="partner-logo hidden-partner">
-                    <img src="images/Kahwawetamer.jpg" alt="Kahwawetamer - Enactus Damanhour Partner" loading="lazy">
+                    <img src="images/Kahwawetamer.jpg" alt="Kahwawetamer - Enactus Damanhour Partner" loading="lazy"
+                        width="150" height="80">
                 </div>
                 <div class="partner-logo hidden-partner">
-                    <img src="images/alrakwa.jpg" alt="Alrakwa - Enactus Damanhour Partner" loading="lazy">
+                    <img src="images/alrakwa.jpg" alt="Alrakwa - Enactus Damanhour Partner" loading="lazy" width="150"
+                        height="80">
                 </div>
                 <div class="partner-logo hidden-partner">
-                    <img src="images/lagogo.jpg" alt="Lagogo - Enactus Damanhour Partner" loading="lazy">
+                    <img src="images/lagogo.jpg" alt="Lagogo - Enactus Damanhour Partner" loading="lazy" width="150"
+                        height="80">
                 </div>
             </div>
 
@@ -801,7 +839,8 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="images/logo.png" alt="Enactus Damanhour University Logo" width="100" height="60">
+                        <img src="images/logo.png" alt="Enactus Damanhour University Logo" width="100" height="60"
+                            loading="lazy">
                     </div>
                     <p>Enactus Damanhour University - Transforming lives through entrepreneurial
                         action in Egypt</p>
@@ -810,7 +849,6 @@
                 <div class="footer-section">
                     <h3>Enactus Quick Links</h3>
                     <ul>
-                        <!-- <li><a href="#">Enactus Home</a></li> -->
                         <li><a href="#about">About Enactus</a></li>
                         <li><a href="#projects">Enactus Projects</a></li>
                         <li><a href="#events">Enactus Events</a></li>
@@ -844,7 +882,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 
 </html>
