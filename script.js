@@ -222,64 +222,137 @@ function initializeProjects() {
 }
 
 // Team Management - FIXED
+// Team Management - COMPLETELY FIXED
 function initializeTeam() {
   const viewAllTeamBtn = document.getElementById("viewAllTeamBtn");
   const teamGrid = document.querySelector(".team-grid");
   const teamTabs = document.querySelectorAll(".team-tab");
   const teamMembers = document.querySelectorAll(".team-member");
-  const hiddenMembers = document.querySelectorAll(".hidden-member");
 
   let showingAllTeam = false;
   let currentCategory = "leaders";
 
-  // Function to filter and display team members - FIXED
+  // Function to filter and display team members - COMPLETELY FIXED
   function filterTeamMembers(category, showAll = false) {
-    let visibleCount = 0;
+    console.log(`🎯 Filtering: ${category}, Show All: ${showAll}`);
+
     const maxInitial = 3;
+    let visibleCount = 0;
 
-    teamMembers.forEach((member) => {
+    // Get all members in the current category
+    const categoryMembers = Array.from(teamMembers).filter((member) => {
       const memberCategory = member.getAttribute("data-category");
-      const isHidden = member.classList.contains("hidden-member");
-      const shouldShow =
-        category === "all-members" || memberCategory === category;
 
-      if (shouldShow) {
-        if (showAll || visibleCount < maxInitial || !isHidden) {
-          member.style.display = "block";
-          visibleCount++;
-        } else {
-          member.style.display = "none";
-        }
+      if (category === "all-members") {
+        return true; // Show all members
       } else {
-        member.style.display = "none";
+        return memberCategory === category; // Show only specific category
       }
     });
 
+    console.log(`📊 Total in ${category}: ${categoryMembers.length} members`);
+
+    // Show/hide members based on category and showAll state
+    teamMembers.forEach((member) => {
+      const memberCategory = member.getAttribute("data-category");
+      const isInCurrentCategory =
+        category === "all-members" || memberCategory === category;
+
+      if (isInCurrentCategory) {
+        if (showAll) {
+          // Show ALL members in this category
+          member.style.display = "block";
+          member.style.opacity = "1";
+          visibleCount++;
+          console.log(
+            `✅ Showing ALL: ${member.querySelector("h3").textContent}`
+          );
+        } else {
+          // Show only first 3 members in this category
+          const memberIndex = categoryMembers.indexOf(member);
+          if (memberIndex < maxInitial) {
+            member.style.display = "block";
+            member.style.opacity = "1";
+            visibleCount++;
+            console.log(
+              `✅ Showing (first ${maxInitial}): ${
+                member.querySelector("h3").textContent
+              }`
+            );
+          } else {
+            member.style.display = "none";
+            member.style.opacity = "0";
+            console.log(
+              `⏳ Hiding (beyond first ${maxInitial}): ${
+                member.querySelector("h3").textContent
+              }`
+            );
+          }
+        }
+      } else {
+        // Hide members not in current category
+        member.style.display = "none";
+        member.style.opacity = "0";
+        console.log(
+          `🚫 Hiding (wrong category): ${
+            member.querySelector("h3").textContent
+          }`
+        );
+      }
+    });
+
+    console.log(`👀 Total visible: ${visibleCount}`);
     return visibleCount;
   }
 
   // Initialize team display - FIXED
   function initializeTeamDisplay() {
+    console.log(
+      `🔄 Initializing display - Category: ${currentCategory}, Show All: ${showingAllTeam}`
+    );
+
     const visibleCount = filterTeamMembers(currentCategory, showingAllTeam);
 
-    // Update button visibility and text
+    // Update button visibility and text - COMPLETELY FIXED
     if (viewAllTeamBtn) {
       if (currentCategory === "advisors") {
-        viewAllTeamBtn.style.display = "none";
+        // Hide button for advisors if there are 3 or less
+        const advisorCount = Array.from(teamMembers).filter(
+          (m) => m.getAttribute("data-category") === "advisors"
+        ).length;
+
+        if (advisorCount <= 3) {
+          viewAllTeamBtn.style.display = "none";
+        } else {
+          viewAllTeamBtn.style.display = "block";
+          viewAllTeamBtn.textContent = showingAllTeam
+            ? "Show Less"
+            : "View All Advisors";
+        }
       } else {
         viewAllTeamBtn.style.display = "block";
-        viewAllTeamBtn.textContent = showingAllTeam
-          ? "Show Less"
-          : currentCategory === "leaders"
-          ? "View All Enactus Team Leaders"
-          : "View All Enactus Team";
+
+        if (currentCategory === "all-members") {
+          viewAllTeamBtn.textContent = showingAllTeam
+            ? "Show Less"
+            : "View All Enactus Team";
+        } else if (currentCategory === "leaders") {
+          viewAllTeamBtn.textContent = showingAllTeam
+            ? "Show Less"
+            : "View All Enactus Team Leaders";
+        }
       }
     }
 
-    // Update grid layout
+    // Update grid layout for better spacing
     if (teamGrid) {
-      teamGrid.classList.toggle("compact", currentCategory !== "all-members");
-      teamGrid.classList.toggle("show-all-members", showingAllTeam);
+      if (showingAllTeam) {
+        teamGrid.style.gap = "30px";
+        teamGrid.classList.remove("compact");
+      } else {
+        teamGrid.style.gap = "15px";
+        teamGrid.classList.add("compact");
+      }
     }
   }
 
@@ -287,9 +360,20 @@ function initializeTeam() {
   if (viewAllTeamBtn) {
     viewAllTeamBtn.addEventListener("click", (e) => {
       e.preventDefault();
+      console.log("🔄 View All button clicked");
 
       showingAllTeam = !showingAllTeam;
       initializeTeamDisplay();
+
+      // Smooth scroll to maintain position when showing more
+      if (showingAllTeam) {
+        setTimeout(() => {
+          const teamSection = document.querySelector("#team");
+          if (teamSection) {
+            teamSection.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }, 300);
+      }
     });
   }
 
@@ -297,13 +381,15 @@ function initializeTeam() {
   if (teamTabs.length > 0) {
     teamTabs.forEach((tab) => {
       tab.addEventListener("click", () => {
+        console.log(`📁 Tab clicked: ${tab.getAttribute("data-category")}`);
+
         // Update active tab
         teamTabs.forEach((t) => t.classList.remove("active"));
         tab.classList.add("active");
 
         // Update current category
         currentCategory = tab.getAttribute("data-category");
-        showingAllTeam = false;
+        showingAllTeam = false; // Reset show all when changing categories
 
         // Reinitialize display
         initializeTeamDisplay();
@@ -313,6 +399,21 @@ function initializeTeam() {
 
   // Initial setup
   initializeTeamDisplay();
+
+  // Debug info
+  console.log("✅ Team initialization complete");
+  console.log(`📋 Total team members: ${teamMembers.length}`);
+  console.log(`📂 Current category: ${currentCategory}`);
+
+  // Count members by category
+  const leadersCount = Array.from(teamMembers).filter(
+    (m) => m.getAttribute("data-category") === "leaders"
+  ).length;
+  const advisorsCount = Array.from(teamMembers).filter(
+    (m) => m.getAttribute("data-category") === "advisors"
+  ).length;
+
+  console.log(`👥 Leaders: ${leadersCount}, Advisors: ${advisorsCount}`);
 }
 
 // Partners Show More/Less - FIXED

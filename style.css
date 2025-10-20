@@ -1153,3 +1153,86 @@ img:after {
     font-size: 12px;
     text-align: center;
 }
+/* Fix Team Section Display Issues */
+.team-member {
+    background-color: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    width: 280px;
+    margin: 0 auto;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Smooth animations for showing/hiding */
+.team-member {
+    transition: transform 0.3s ease, opacity 0.3s ease, display 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+}
+
+/* Animation for showing hidden members */
+.team-member[style*="display: block"] {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ensure team grid displays correctly */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    transition: all 0.3s ease;
+}
+
+.team-grid.compact {
+    gap: 15px;
+}
+
+/* Fix button styles */
+.team-cta {
+    text-align: center;
+    margin-top: 40px;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+#viewAllTeamBtn {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-block !important;
+    transition: all 0.3s ease;
+}
+
+#viewAllTeamBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .team-member {
+        width: 100%;
+        max-width: 280px;
+    }
+}
