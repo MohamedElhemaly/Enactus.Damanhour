@@ -151,6 +151,13 @@ img {
     padding: 8px 20px;
     border-radius: 20px;
     font-weight: 600;
+    transition: all 0.3s ease; /* إضافة transition */
+    border: 2px solid var(--yellow); /* إضافة border */
+}
+
+.donate-btn:hover {
+    background-color: transparent;
+    color: var(--black);
 }
 
 .hamburger {
