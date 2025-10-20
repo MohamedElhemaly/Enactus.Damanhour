@@ -1,4 +1,4 @@
-// script.js - Complete Fixed Version
+// script.js - Complete Fixed Version with Contact Button Fix
 
 // Wait for DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", function () {
@@ -13,7 +13,7 @@ function initializeAllFeatures() {
   initializeSmoothScrolling();
 }
 
-// Mobile Navigation - FIXED
+// Mobile Navigation - COMPLETELY FIXED
 function initializeNavigation() {
   const hamburger = document.querySelector(".hamburger");
   const navMenu = document.querySelector(".nav-menu");
@@ -34,13 +34,36 @@ function initializeNavigation() {
       hamburger.setAttribute("aria-expanded", isExpanded);
     });
 
-    // Close menu when clicking on links
+    // Close menu when clicking on links - FIXED FOR CONTACT BUTTON
     navLinks.forEach((link) => {
-      link.addEventListener("click", () => {
+      link.addEventListener("click", (e) => {
+        // Only prevent default for anchor links that scroll
+        if (link.getAttribute("href").startsWith("#")) {
+          e.preventDefault();
+
+          const targetId = link.getAttribute("href");
+          const targetSection = document.querySelector(targetId);
+
+          if (targetSection) {
+            const targetPosition = targetSection.offsetTop - 70;
+            window.scrollTo({
+              top: targetPosition,
+              behavior: "smooth",
+            });
+
+            // Update URL
+            history.pushState(null, null, targetId);
+          }
+        }
+
+        // Close mobile menu
         hamburger.classList.remove("active");
         navMenu.classList.remove("active");
         body.classList.remove("menu-open");
         hamburger.setAttribute("aria-expanded", "false");
+
+        // Update active nav link
+        updateActiveNavLink();
       });
     });
 
@@ -77,28 +100,47 @@ function initializeNavigation() {
     updateActiveNavLink();
   }
 
-  // Update active navigation link - FIXED VERSION
+  // Update active navigation link - COMPLETELY FIXED VERSION
   function updateActiveNavLink() {
     const sections = document.querySelectorAll("section[id]");
     const scrollPos = window.scrollY + 100;
-    let currentActive = null;
 
+    // Remove active class from all links first
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+    });
+
+    // Special handling for contact section
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      const contactTop = contactSection.offsetTop;
+      const contactHeight = contactSection.offsetHeight;
+
+      if (
+        scrollPos >= contactTop - 100 &&
+        scrollPos < contactTop + contactHeight - 100
+      ) {
+        const contactLink = document.querySelector(".nav-link.donate-btn");
+        if (contactLink) {
+          contactLink.classList.add("active");
+          return;
+        }
+      }
+    }
+
+    // Regular section detection
+    let currentActive = null;
     sections.forEach((section) => {
       const sectionTop = section.offsetTop;
       const sectionHeight = section.offsetHeight;
       const sectionId = section.getAttribute("id");
 
       if (
-        scrollPos >= sectionTop - 50 &&
-        scrollPos < sectionTop + sectionHeight - 50
+        scrollPos >= sectionTop - 100 &&
+        scrollPos < sectionTop + sectionHeight - 100
       ) {
         currentActive = sectionId;
       }
-    });
-
-    // Remove active class from all links first
-    navLinks.forEach((link) => {
-      link.classList.remove("active");
     });
 
     // Add active class to current section link
@@ -106,44 +148,11 @@ function initializeNavigation() {
       const activeLink = document.querySelector(
         `.nav-link[href="#${currentActive}"]`
       );
-      if (activeLink) {
+      if (activeLink && !activeLink.classList.contains("donate-btn")) {
         activeLink.classList.add("active");
       }
     }
   }
-
-  // Smooth scrolling for navigation links - FIXED
-  navLinks.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      const targetId = this.getAttribute("href");
-
-      // Skip if it's not a section link
-      if (targetId === "#" || !targetId.startsWith("#")) return;
-
-      const targetSection = document.querySelector(targetId);
-      if (targetSection) {
-        e.preventDefault();
-
-        // Close mobile menu if open
-        if (navMenu.classList.contains("active")) {
-          hamburger.classList.remove("active");
-          navMenu.classList.remove("active");
-          body.classList.remove("menu-open");
-          hamburger.setAttribute("aria-expanded", "false");
-        }
-
-        const targetPosition = targetSection.offsetTop - 70;
-
-        window.scrollTo({
-          top: targetPosition,
-          behavior: "smooth",
-        });
-
-        // Update URL without page reload
-        history.pushState(null, null, targetId);
-      }
-    });
-  });
 
   // Initialize scroll events
   window.addEventListener("scroll", handleScroll);
@@ -158,8 +167,12 @@ function initializeNavigation() {
       hamburger.setAttribute("aria-expanded", "false");
     }
   });
+
+  // Initial call to set correct active state
+  updateActiveNavLink();
 }
 
+// Rest of your existing JavaScript functions remain the same...
 // Projects Show More/Less - FIXED
 function initializeProjects() {
   const viewAllBtn = document.getElementById("viewAllBtn");
@@ -389,6 +402,84 @@ window.addEventListener("error", function (e) {
   console.error("Error in file:", e.filename);
   console.error("Line number:", e.lineno);
 });
+
+// Enhanced Lazy Loading with Error Handling
+function initializeLazyLoading() {
+  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+
+  // Fallback for browsers without IntersectionObserver
+  if (!("IntersectionObserver" in window)) {
+    lazyImages.forEach((img) => {
+      loadImage(img);
+    });
+    return;
+  }
+
+  const imageObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          loadImage(img);
+          imageObserver.unobserve(img);
+        }
+      });
+    },
+    {
+      rootMargin: "50px 0px",
+      threshold: 0.1,
+    }
+  );
+
+  lazyImages.forEach((img) => {
+    // Load images that are already in viewport immediately
+    const rect = img.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      loadImage(img);
+    } else {
+      imageObserver.observe(img);
+    }
+  });
+
+  // Function to handle image loading with error fallback
+  function loadImage(img) {
+    // Check if image is already loaded or loading
+    if (img.complete || img.dataset.loading === "true") return;
+
+    img.dataset.loading = "true";
+
+    const originalSrc = img.src;
+
+    // Create a new image to test loading
+    const testImage = new Image();
+
+    testImage.onload = function () {
+      img.src = originalSrc;
+      img.classList.add("loaded");
+      img.dataset.loading = "false";
+    };
+
+    testImage.onerror = function () {
+      // If image fails to load, show placeholder and log error
+      console.warn("Image failed to load:", originalSrc);
+      img.src =
+        "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjVmNWY1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzY2NjY2NiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIG5vdCBmb3VuZDwvdGV4dD48L3N2Zz4=";
+      img.alt = "Image not available: " + img.alt;
+      img.dataset.loading = "false";
+    };
+
+    testImage.src = originalSrc;
+  }
+
+  // Force load all images after 3 seconds as fallback
+  setTimeout(() => {
+    lazyImages.forEach((img) => {
+      if (!img.complete && img.dataset.loading !== "true") {
+        loadImage(img);
+      }
+    });
+  }, 3000);
+}
 
 // Add console log for debugging
 console.log("Enactus Damanhour - JavaScript loaded successfully!");
