@@ -51,7 +51,7 @@
     <meta name="HandheldFriendly" content="true">
     <meta name="MobileOptimized" content="width">
 
-    <!-- Critical CSS Inline to prevent FOUC -->
+    <!-- Critical CSS Inline to prevent FOUC and fix CLS -->
     <style>
         /* Critical CSS - Loads immediately to prevent FOUC */
         :root {
@@ -83,11 +83,6 @@
             visibility: visible !important;
         }
 
-        /* Hide content until CSS is fully loaded */
-        .no-js-content {
-            display: none;
-        }
-
         /* Basic layout for critical elements */
         .navbar {
             position: fixed;
@@ -99,6 +94,8 @@
             z-index: 1000;
             padding: 0;
             transition: all 0.3s ease;
+            height: 70px;
+            /* reserve height to avoid layout shift */
         }
 
         .nav-container {
@@ -114,6 +111,7 @@
         .nav-logo img {
             height: 50px;
             width: auto;
+            display: block;
         }
 
         .nav-menu {
@@ -135,9 +133,10 @@
             font-size: 0.95rem;
             padding: 8px 16px;
             border-radius: 20px;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease;
             color: var(--gray);
             position: relative;
+            display: inline-block;
         }
 
         .nav-link.donate-btn {
@@ -176,6 +175,7 @@
         .hero {
             height: 100vh;
             min-height: 600px;
+            /* Keep the gradient on the hero element so it overlays the background image */
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
             display: flex;
             align-items: center;
@@ -184,17 +184,25 @@
             color: var(--white);
             padding-top: 70px;
             position: relative;
+            overflow: hidden;
+            /* prevent image overflow */
         }
 
-        .hero::after {
-            content: '';
+        /* background container placed behind hero content to avoid layout shifts
+           image has explicit sizing via CSS so browser reserves space */
+        .hero-background {
             position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
+            z-index: -1;
             width: 100%;
             height: 100%;
-            background: url('images/download1.jpg') no-repeat center center/cover;
-            z-index: -1;
+        }
+
+        .hero-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .hero-content {
@@ -222,12 +230,13 @@
             padding: 12px 30px;
             border-radius: 30px;
             font-weight: 600;
-            transition: all 0.3s ease;
+            /* limit transition to color/background to avoid unexpected layout animations */
+            transition: background-color 0.3s ease, color 0.3s ease;
             border: 2px solid var(--yellow);
             font-size: clamp(0.9rem, 2vw, 1rem);
         }
 
-        /* Loading state */
+        /* Loading state - use fixed overlay so removing it doesn't shift layout */
         .loading {
             display: flex;
             justify-content: center;
@@ -235,10 +244,11 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background: var(--white);
             z-index: 9999;
+            /* opacity transition only (does not trigger layout shift) */
             transition: opacity 0.5s ease;
         }
 
@@ -271,6 +281,27 @@
             opacity: 1;
             visibility: visible;
         }
+
+        /* Fix icon sizing to prevent CLS for icons */
+        .contact i,
+        .footer i,
+        .about-icon i,
+        .member-social i,
+        .event-info i {
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* Small responsive safety */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
     </style>
 
     <!-- Preload Critical Resources -->
@@ -280,7 +311,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Stylesheets -->
+    <!-- Stylesheets fallback for no-js -->
     <noscript>
         <link rel="stylesheet" href="style.css">
     </noscript>
@@ -288,7 +319,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </noscript>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts (display=swap to prevent layout shifts from font loading) -->
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'">
@@ -298,7 +329,7 @@
             rel="stylesheet">
     </noscript>
 
-    <!-- Structured Data -->
+    <!-- Structured Data (Organization + Logo) - kept as requested -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -332,39 +363,40 @@
 </head>
 
 <body>
-    <!-- Loading Screen -->
-    <div class="loading" id="loadingScreen">
-        <div class="spinner"></div>
+    <!-- Loading Screen (fixed overlay, won't shift layout when removed) -->
+    <div class="loading" id="loadingScreen" aria-hidden="true">
+        <div class="spinner" role="status" aria-label="Loading"></div>
     </div>
 
     <div class="main-content">
         <!-- Header & Navigation -->
         <header>
-            <nav class="navbar">
+            <nav class="navbar" role="navigation" aria-label="Main Navigation">
                 <div class="nav-container">
                     <a href="#" class="nav-logo" aria-label="Enactus Damanhour Home">
+                        <!-- changed to eager to avoid navbar shift (keeps visual identical) -->
                         <img src="images/logo.webp" alt="Enactus Damanhour University Logo" width="120" height="50"
-                            loading="lazy">
+                            loading="eager">
                     </a>
 
-                    <ul class="nav-menu">
-                        <li class="nav-item">
-                            <a href="#about" class="nav-link">About Enactus</a>
+                    <ul class="nav-menu" role="menubar" aria-label="Primary">
+                        <li class="nav-item" role="none">
+                            <a href="#about" class="nav-link" role="menuitem">About Enactus</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#projects" class="nav-link">Our Projects</a>
+                        <li class="nav-item" role="none">
+                            <a href="#projects" class="nav-link" role="menuitem">Our Projects</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#events" class="nav-link">Events</a>
+                        <li class="nav-item" role="none">
+                            <a href="#events" class="nav-link" role="menuitem">Events</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#team" class="nav-link">Our Team</a>
+                        <li class="nav-item" role="none">
+                            <a href="#team" class="nav-link" role="menuitem">Our Team</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#partners" class="nav-link">Partners</a>
+                        <li class="nav-item" role="none">
+                            <a href="#partners" class="nav-link" role="menuitem">Partners</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#contact" class="nav-link donate-btn">Contact Enactus</a>
+                        <li class="nav-item" role="none">
+                            <a href="#contact" class="nav-link donate-btn" role="menuitem">Contact Enactus</a>
                         </li>
                     </ul>
 
@@ -378,10 +410,11 @@
         </header>
 
         <!-- Hero Section - Fixed -->
-        <section class="hero">
-            <div class="hero-background">
-                <img src="images/download1.webp" alt="Enactus Damanhour University" loading="eager" style="display:none"
-                    onload="this.style.display='block'">
+        <section class="hero" role="region" aria-label="Hero">
+            <div class="hero-background" aria-hidden="true">
+                <!-- removed display:none & onload to ensure browser reserves space and avoid layout shift -->
+                <img src="images/download1.webp" alt="Enactus Damanhour University" loading="eager" width="1620"
+                    height="810">
             </div>
             <div class="hero-content">
                 <h1 class="hero-title">Enactus Damanhour University - Transforming Lives Through Entrepreneurial Action
@@ -833,7 +866,6 @@
                             </div>
                         </div>
 
-
                         <div class="team-member hidden-member" data-category="leaders">
                             <div class="member-image">
                                 <img src="images/fayez.jpg" alt="Fayez kenawy - Enactus Damanhour Head Marketing"
@@ -861,7 +893,7 @@
                                 <p>Enactus Head Presentation</p>
                                 <div class="member-social">
                                     <a href="https://www.linkedin.com/in/gannah-salah-716172378" target="_blank"
-                                        aria-label="LinkedIn profile of Ganna Salah">
+                                        aria-label="LinkedIn profile of Gannah Salah">
                                         <i class="fab fa-linkedin" aria-hidden="true"></i>
                                     </a>
                                 </div>
@@ -1134,22 +1166,24 @@
         </footer>
     </div>
 
+    <!-- External script (kept deferred as original) -->
     <script src="script.js" defer></script>
 
-    <!-- Script to handle loading and FOUC prevention -->
+    <!-- Script to handle loading and FOUC prevention (kept but safe) -->
     <script>
-        // Prevent FOUC and handle loading
+        // Prevent FOUC and handle loading (overlay is fixed so it doesn't shift layout)
         document.addEventListener('DOMContentLoaded', function () {
             // Hide loading screen when page is fully loaded
             window.addEventListener('load', function () {
                 const loadingScreen = document.getElementById('loadingScreen');
                 if (loadingScreen) {
+                    // fade out overlay (opacity only)
+                    loadingScreen.classList.add('hidden');
+                    // after fade remove from accessibility tree
                     setTimeout(function () {
-                        loadingScreen.classList.add('hidden');
-                        setTimeout(function () {
-                            loadingScreen.style.display = 'none';
-                        }, 500);
-                    }, 500);
+                        loadingScreen.style.display = 'none';
+                        loadingScreen.setAttribute('aria-hidden', 'true');
+                    }, 600);
                 }
             });
 
@@ -1160,7 +1194,8 @@
                     loadingScreen.classList.add('hidden');
                     setTimeout(function () {
                         loadingScreen.style.display = 'none';
-                    }, 500);
+                        loadingScreen.setAttribute('aria-hidden', 'true');
+                    }, 600);
                 }
             }, 3000);
         });
