@@ -839,6 +839,9 @@ img {
     padding-top: 20px;
     border-top: 1px solid #444;
 }
+.footer-bottom :hover {
+    color: var(--yellow);
+}
 
 /* Mobile Navigation */
 @media (max-width: 968px) {
