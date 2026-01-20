@@ -774,5 +774,6 @@ function initializeAllFeatures() {
   initializePartners();
   initializeSmoothScrolling();
 }
+
 // Add console log for debugging
 console.log("Enactus Damanhour - JavaScript loaded successfully!");
