@@ -581,6 +581,198 @@ function initializeLazyLoading() {
     });
   }, 3000);
 }
+// Enhanced Breaking News with Animated Background
+function initializeBreakingNews() {
+  // Create dynamic particles
+  createAnimatedBackground();
+  
+  // Update date and time
+  function updateDateTime() {
+    const now = new Date();
+    const dateElement = document.getElementById('current-date');
+    const timeElement = document.getElementById('current-time');
+    
+    if (dateElement) {
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      dateElement.textContent = now.toLocaleDateString('en-US', options);
+    }
+    
+    if (timeElement) {
+      const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: true };
+      timeElement.textContent = now.toLocaleTimeString('en-US', timeOptions);
+    }
+  }
+  
+  updateDateTime();
+  setInterval(updateDateTime, 60000);
+  
+  // Initialize news functionality
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const newsItems = document.querySelectorAll('.news-item');
+  const prevBtn = document.querySelector('.ticker-btn.prev');
+  const nextBtn = document.querySelector('.ticker-btn.next');
+  const indicators = document.querySelectorAll('.ticker-indicator');
+  
+  let currentNewsId = 1;
+  let autoSlideInterval;
+  
+  function showNewsItem(newsId) {
+    // Remove active classes
+    galleryItems.forEach(item => item.classList.remove('active'));
+    newsItems.forEach(item => item.classList.remove('active'));
+    indicators.forEach(indicator => indicator.classList.remove('active'));
+    
+    // Add active classes
+    const selectedGalleryItem = document.querySelector(`.gallery-item[data-news-id="${newsId}"]`);
+    const selectedNewsItem = document.querySelector(`.news-item[data-news-id="${newsId}"]`);
+    const selectedIndicator = document.querySelector(`.ticker-indicator[data-news-id="${newsId}"]`);
+    
+    if (selectedGalleryItem) selectedGalleryItem.classList.add('active');
+    if (selectedNewsItem) selectedNewsItem.classList.add('active');
+    if (selectedIndicator) selectedIndicator.classList.add('active');
+    
+    currentNewsId = newsId;
+  }
+  
+  function startAutoSlide() {
+    clearInterval(autoSlideInterval);
+    autoSlideInterval = setInterval(() => {
+      let newId = currentNewsId + 1;
+      if (newId > 3) newId = 1;
+      showNewsItem(newId);
+    }, 8000);
+  }
+  
+  // Event listeners
+  galleryItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const newsId = this.getAttribute('data-news-id');
+      showNewsItem(parseInt(newsId));
+      startAutoSlide();
+    });
+  });
+  
+  indicators.forEach(indicator => {
+    indicator.addEventListener('click', function() {
+      const newsId = this.getAttribute('data-news-id');
+      showNewsItem(parseInt(newsId));
+      startAutoSlide();
+    });
+  });
+  
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function() {
+      let newId = currentNewsId - 1;
+      if (newId < 1) newId = 3;
+      showNewsItem(newId);
+      startAutoSlide();
+    });
+  }
+  
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function() {
+      let newId = currentNewsId + 1;
+      if (newId > 3) newId = 1;
+      showNewsItem(newId);
+      startAutoSlide();
+    });
+  }
+  
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      let newId = currentNewsId - 1;
+      if (newId < 1) newId = 3;
+      showNewsItem(newId);
+      startAutoSlide();
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      let newId = currentNewsId + 1;
+      if (newId > 3) newId = 1;
+      showNewsItem(newId);
+      startAutoSlide();
+    }
+  });
+  
+  // Initialize
+  showNewsItem(1);
+  startAutoSlide();
+}
 
+function createAnimatedBackground() {
+  const container = document.querySelector('.particles-container');
+  if (!container) return;
+  
+  // Create 50 floating particles
+  for (let i = 0; i < 50; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.style.cssText = `
+      position: absolute;
+      width: ${Math.random() * 3 + 1}px;
+      height: ${Math.random() * 3 + 1}px;
+      background: rgba(255, 204, 0, ${Math.random() * 0.1 + 0.05});
+      border-radius: 50%;
+      left: ${Math.random() * 100}%;
+      top: ${Math.random() * 100}%;
+      animation: floatParticle ${Math.random() * 20 + 10}s linear infinite;
+      animation-delay: ${Math.random() * 5}s;
+      z-index: 1;
+    `;
+    container.appendChild(particle);
+  }
+  
+  // Add CSS for particle animation
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes floatParticle {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: ${Math.random() * 0.5 + 0.3};
+      }
+      25% {
+        transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px) rotate(90deg);
+        opacity: ${Math.random() * 0.3 + 0.1};
+      }
+      50% {
+        transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px) rotate(180deg);
+        opacity: ${Math.random() * 0.5 + 0.3};
+      }
+      75% {
+        transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px) rotate(270deg);
+        opacity: ${Math.random() * 0.3 + 0.1};
+      }
+      100% {
+        transform: translate(0, 0) rotate(360deg);
+        opacity: ${Math.random() * 0.5 + 0.3};
+      }
+    }
+    
+    .particle {
+      will-change: transform, opacity;
+      transform: translateZ(0);
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .particle {
+        display: none;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+// Update initializeAllFeatures to include background animation
+function initializeAllFeatures() {
+  initializeNavigation();
+  initializeBreakingNews();
+  initializeProjects();
+  initializeTeam();
+  initializePartners();
+  initializeSmoothScrolling();
+}
 // Add console log for debugging
 console.log("Enactus Damanhour - JavaScript loaded successfully!");

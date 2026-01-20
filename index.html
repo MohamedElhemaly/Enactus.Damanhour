@@ -460,7 +460,148 @@
                 </div>
             </div>
         </section>
-
+<!-- Breaking News Section -->
+<section class="breaking-news" role="region" aria-label="Breaking News">
+    <!-- Animated Background -->
+    <div class="breaking-bg-animation">
+        <div class="particles-container"></div>
+        <div class="light-beams"></div>
+        <div class="grid-lines"></div>
+        <div class="pulse-ring"></div>
+    </div>
+    
+    <div class="breaking-container">
+        <!-- Photo Gallery -->
+        <div class="breaking-gallery">
+            <div class="gallery-item" data-news-id="1">
+                <div class="photo-frame">
+                    <div class="polaroid">
+                        <img src="images/Modern Coming Soon Banner with Glossy Accents.jpg" 
+                             alt="Enactus team winning award" 
+                             loading="lazy" 
+                             class="gallery-photo">
+                        <div class="photo-caption">Coming Soon</div>
+                    </div>
+                    <div class="photo-corner tl"></div>
+                    <div class="photo-corner tr"></div>
+                    <div class="photo-corner bl"></div>
+                    <div class="photo-corner br"></div>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-news-id="2">
+                <div class="photo-frame">
+                    <div class="polaroid">
+                        <img src="images/breaking-news-bg.webp" 
+                             alt="CoderaTech Bootcamp graduates" 
+                             loading="lazy" 
+                             class="gallery-photo">
+                        <div class="photo-caption">Damanhour University</div>
+                    </div>
+                    <div class="photo-corner tl"></div>
+                    <div class="photo-corner tr"></div>
+                    <div class="photo-corner bl"></div>
+                    <div class="photo-corner br"></div>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-news-id="3">
+                <div class="photo-frame">
+                    <div class="polaroid">
+                        <img src="images/black-bear.jpeg" 
+                             alt="Enactus team partnership signing" 
+                             loading="lazy" 
+                             class="gallery-photo">
+                        <div class="photo-caption">Partnership Signing</div>
+                    </div>
+                    <div class="photo-corner tl"></div>
+                    <div class="photo-corner tr"></div>
+                    <div class="photo-corner bl"></div>
+                    <div class="photo-corner br"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- News Ticker -->
+        <div class="breaking-ticker">
+            <div class="ticker-header">
+                <div class="ticker-label">
+                    <div class="label-glow"></div>
+                    <i class="fas fa-newspaper" aria-hidden="true"></i>
+                    <span>ENACTUS BREAKING NEWS</span>
+                </div>
+                <div class="ticker-datetime">
+                    <span id="current-date"></span>
+                    <span id="current-time"></span>
+                </div>
+            </div>
+            
+            <div class="ticker-content">
+                <div class="news-item active" data-news-id="1">
+                    <a href="#" 
+                       target="_blank" 
+                       class="news-link">
+                        <span class="news-badge">
+                            <i class="fas fa-trophy" aria-hidden="true"></i>
+                            AWARD
+                        </span>
+                        <span class="news-title">Coming Soon</span>
+                        <span class="news-meta">
+                            <span class="news-date">Soon</span>
+                            <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+                
+                <div class="news-item" data-news-id="2">
+                    <a href="https://www.facebook.com/share/p/1XasuYcMBB/?mibextid=wwXIfr" 
+                       target="_blank" 
+                       class="news-link">
+                        <span class="news-badge">
+                            <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                            TRAINING
+                        </span>
+                        <span class="news-title">After A long Meeting With Damanhour University Dean Enactus Damanhour have successfully Cooperate with Damanhour University on Our future projects</span>
+                        <span class="news-meta">
+                            <span class="news-date">2 days ago</span>
+                            <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+                
+                <div class="news-item" data-news-id="3">
+                    <a href="https://www.facebook.com/share/p/1DcuASyGvh/" 
+                       target="_blank" 
+                       class="news-link">
+                        <span class="news-badge">
+                            <i class="fas fa-handshake" aria-hidden="true"></i>
+                            PARTNERSHIP
+                        </span>
+                        <span class="news-title">New Partnership: Enactus Damanhour Collaborates Black-Bear Burger as a Part of Our Leading Organizations for Social Impact</span>
+                        <span class="news-meta">
+                            <span class="news-date">1 week ago</span>
+                            <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="ticker-controls">
+                <button class="ticker-btn prev" aria-label="Previous news">
+                    <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                </button>
+                <div class="ticker-indicators">
+                    <button class="ticker-indicator active" data-news-id="1" aria-label="Show news 1"></button>
+                    <button class="ticker-indicator" data-news-id="2" aria-label="Show news 2"></button>
+                    <button class="ticker-indicator" data-news-id="3" aria-label="Show news 3"></button>
+                </div>
+                <button class="ticker-btn next" aria-label="Next news">
+                    <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
         <!-- Projects Section -->
         <section id="projects" class="projects">
             <div class="container">
