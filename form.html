@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form | Enactus Damanhour</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js" defer></script>
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="js/emailjs-config.js" defer></script>
+    <!-- Form Handler -->
+    <script src="js/form-handler.js" defer></script>
+    <style>
+        .form-container { max-width: 800px; margin: 120px auto 60px; padding: 40px; background: #fff; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .form-header { text-align: center; margin-bottom: 40px; }
+        .form-header h1 { font-family: 'Outfit', sans-serif; color: var(--dark); font-size: 2.5rem; margin-bottom: 10px; }
+        .form-header p { color: #64748B; font-size: 1.1rem; }
+        .form-group { margin-bottom: 24px; }
+        .form-group label { display: block; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
+        .form-group input[type="text"], .form-group input[type="email"], .form-group input[type="tel"], .form-group input[type="number"], .form-group input[type="date"], .form-group textarea, .form-group select { width: 100%; padding: 14px 16px; border: 1px solid #CBD5E1; border-radius: 12px; font-family: inherit; font-size: 1rem; outline: none; transition: all 0.2s; }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(255,204,0,0.15); }
+        .checkbox-group, .radio-group { display: flex; flex-direction: column; gap: 10px; }
+        .checkbox-group label, .radio-group label { display: flex; align-items: center; font-weight: normal; margin-bottom: 0; cursor: pointer; }
+        .checkbox-group input, .radio-group input { margin-right: 10px; width: 18px; height: 18px; }
+        .submit-btn { width: 100%; padding: 16px; background: var(--yellow); color: var(--black); border: none; border-radius: 999px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255,204,0,0.2); }
+        .submit-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+        #loading-state { text-align: center; padding: 40px; color: #64748B; }
+        .spinner { border: 4px solid rgba(0,0,0,0.1); border-left-color: var(--primary); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 16px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .error-message, .success-message { padding: 20px; border-radius: 12px; margin-bottom: 24px; text-align: center; display: none; }
+        .error-message { background: #FEE2E2; color: #B91C1C; }
+        .success-message { background: #D1FAE5; color: #047857; }
+    </style>
+</head>
+<body>
+    <nav class="navbar scrolled">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><img src="images/logo.webp" alt="Enactus Damanhour"></a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Back to Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="form-container">
+            <div id="loading-state">
+                <div class="spinner"></div>
+                <p>Loading form...</p>
+            </div>
+            
+            <div id="form-error" class="error-message"></div>
+            <div id="form-success" class="success-message"></div>
+
+            <div id="form-content" style="display: none;">
+                <div class="form-header">
+                    <h1 id="form-title">Registration Form</h1>
+                    <p id="form-description">Please fill out the details below.</p>
+                </div>
+                
+                <form id="dynamic-form">
+                    <div id="fields-container"></div>
+                    <button type="submit" class="submit-btn" id="submit-btn">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

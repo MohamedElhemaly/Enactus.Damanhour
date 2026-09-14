@@ -1,9 +1,105 @@
 // script.js - Complete Fixed Version with Contact Button Fix
 
 // Wait for DOM to be fully loaded
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
+  if (window.supabaseAPI) {
+    try {
+      await loadDynamicContent();
+    } catch (e) {
+      console.error("Failed to load dynamic content", e);
+    }
+  }
   initializeAllFeatures();
 });
+
+async function loadDynamicContent() {
+    if (!window.supabaseAPI) return;
+    
+    // Load Projects
+    const projects = await window.supabaseAPI.getProjects();
+    if (projects && projects.length > 0) {
+        const grid = document.querySelector('.projects-grid');
+        if (grid) {
+            grid.innerHTML = '';
+            projects.forEach((p, index) => {
+                const isHidden = index >= 3 ? 'hidden-project' : '';
+                grid.innerHTML += `
+                    <div class="project-card ${isHidden}">
+                        <div class="project-image"><img src="${p.image_url || 'images/placeholder.jpg'}" alt="${p.name}" loading="lazy"></div>
+                        <div class="project-content">
+                            <h3>${p.name}</h3>
+                            <p>${p.description || ''}</p>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+    }
+    
+    // Load Team
+    const team = await window.supabaseAPI.getTeamMembers();
+    if (team && team.length > 0) {
+        const grid = document.querySelector('.team-grid');
+        if (grid) {
+            grid.innerHTML = '';
+            team.forEach(m => {
+                grid.innerHTML += `
+                    <div class="team-member" data-category="${m.category}">
+                        <div class="member-image"><img src="${m.image_url || 'images/placeholder.jpg'}" alt="${m.name}" loading="lazy"></div>
+                        <div class="member-info">
+                            <h3>${m.name}</h3>
+                            <p>${m.role}</p>
+                            ${m.linkedin_url ? `<div class="member-social"><a href="${m.linkedin_url}" target="_blank"><i class="fab fa-linkedin"></i></a></div>` : ''}
+                        </div>
+                    </div>
+                `;
+            });
+        }
+    }
+    
+    // Load Partners
+    const partners = await window.supabaseAPI.getPartners();
+    if (partners && partners.length > 0) {
+        const grid = document.querySelector('.partners-grid');
+        if (grid) {
+            grid.innerHTML = '';
+            partners.forEach((p, index) => {
+                const isHidden = index >= 7 ? 'hidden-partner' : '';
+                grid.innerHTML += `
+                    <div class="partner-logo ${isHidden}">
+                        <img src="${p.image_url || 'images/placeholder.jpg'}" alt="${p.name}" loading="lazy">
+                    </div>
+                `;
+            });
+        }
+    }
+    
+    // Load Events
+    const events = await window.supabaseAPI.getEvents();
+    if (events && events.length > 0) {
+        const grid = document.querySelector('.events-container');
+        if (grid) {
+            grid.innerHTML = '';
+            events.forEach(e => {
+                grid.innerHTML += `
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="${e.image_url || 'images/placeholder.jpg'}" alt="${e.title}" loading="lazy">
+                            ${e.event_day && e.event_month ? `<div class="event-date"><span class="date-day">${e.event_day}</span><span class="date-month">${e.event_month}</span></div>` : ''}
+                        </div>
+                        <div class="event-content">
+                            <h3>${e.title}</h3>
+                            ${e.time_info ? `<p class="event-info"><i class="fas fa-clock"></i> ${e.time_info}</p>` : ''}
+                            ${e.location ? `<p class="event-info"><i class="fas fa-map-marker-alt"></i> ${e.location}</p>` : ''}
+                            <p>${e.description || ''}</p>
+                            ${e.registration_link ? `<a href="${e.registration_link}" class="event-button" target="_blank">Register Here</a>` : ''}
+                        </div>
+                    </div>
+                `;
+            });
+        }
+    }
+}
 
 function initializeAllFeatures() {
   initializeNavigation();
