@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="theme-color" content="#ffcc00">
+    <meta name="description"
+        content="Enactus Damanhour University - Empowering student-led entrepreneurial initiatives creating sustainable social impact. Award-winning projects: Saadany, Margosa, VetSea. Transform lives through innovation.">
+    <meta name="keywords"
+        content="Enactus Damanhour, Enactus Egypt, entrepreneurial action, social impact, sustainable development, Damanhour University, student innovation, Saadany, Margosa, VetSea, social entrepreneurship">
+    <meta name="author" content="Enactus Damanhour">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Enactus Damanhour - Social Innovation & Entrepreneurial Action">
+    <meta property="og:locale" content="en_EG">
+    <meta property="og:site_name" content="Enactus Damanhour University">
+    <meta property="og:description"
+        content="Student-led entrepreneurial initiatives creating tangible social impact. Join our award-winning projects and transform communities.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.enactus-damanhour.com">
+    <meta property="og:image" content="https://www.enactus-damanhour.com/images/logo.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Enactus Damanhour - Social Impact & Entrepreneurial Action">
+    <meta name="twitter:description" content="Student entrepreneurship creating real-world impact at Damanhour University.">
+    <meta name="twitter:image" content="https://www.enactus-damanhour.com/images/logo.webp">
+    <meta name="twitter:site" content="@EnactusDamanhour">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.enactus-damanhour.com">
+
+    <title>Enactus Damanhour | Social Innovation & Entrepreneurial Action</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/images/favicon_io/site.webmanifest">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="msapplication-TileColor" content="#ffcc00">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Critical CSS -->
+    <style>
+        :root {
+            --primary: #FFCC00;
+            --primary-dark: #E6B800;
+            --primary-light: #FFD700;
+            --dark: #0F1117;
+            --dark-secondary: #1A1F2E;
+            --light: #FFFFFF;
+            --gray: #4A5568;
+            --gray-light: #E2E8F0;
+            --success: #10B981;
+            --accent: #FF6B6B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--gray);
+            line-height: 1.7;
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        img,
+        video {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1180px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            height: 70px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            height: 100%;
+        }
+
+        .nav-logo img {
+            height: 45px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 8px 18px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            color: var(--dark);
+            position: relative;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+            border-radius: 1px;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.donate-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--dark);
+            padding: 10px 24px;
+            border: none;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link.donate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 204, 0, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+            gap: 5px;
+        }
+
+        .bar {
+            width: 26px;
+            height: 3px;
+            background: var(--dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 70px;
+            background:
+                radial-gradient(circle at 78% 24%, rgba(255, 204, 0, 0.28), transparent 28%),
+                linear-gradient(135deg, #0f1117 0%, #161b26 48%, #ffffff 48%, #ffffff 100%);
+        }
+
+        .hero-content {
+            width: min(1180px, calc(100% - 40px));
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1.24fr) minmax(300px, 0.76fr);
+            align-items: center;
+            gap: 36px;
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.8rem, 6.2vw, 5.8rem);
+            line-height: 0.95;
+            letter-spacing: 0;
+            color: var(--light);
+            margin-bottom: 24px;
+        }
+
+        .gradient-text {
+            display: inline-block;
+            color: var(--primary);
+        }
+
+        .hero-subtitle {
+            max-width: 650px;
+            color: rgba(255, 255, 255, 0.82);
+            font-size: clamp(1rem, 2vw, 1.24rem);
+            margin-bottom: 34px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 13px 24px;
+            border-radius: 999px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--dark);
+            box-shadow: 0 18px 36px rgba(255, 204, 0, 0.26);
+        }
+
+        .btn-secondary {
+            color: var(--dark);
+            border: 1px solid rgba(255, 204, 0, 0.55);
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .hero-visual {
+            position: relative;
+            z-index: 1;
+            min-height: 440px;
+        }
+
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            inset: 34px 20px 20px 34px;
+            border-radius: 34px;
+            background:
+                linear-gradient(rgba(15, 17, 23, 0.1), rgba(15, 17, 23, 0.18)),
+                url('images/download1.webp') center/cover;
+            box-shadow: 0 30px 70px rgba(15, 17, 23, 0.22);
+        }
+
+        .hero-shape {
+            position: absolute;
+            border-radius: 24px;
+            background: var(--primary);
+            box-shadow: 0 22px 50px rgba(15, 17, 23, 0.16);
+        }
+
+        .shape-1 {
+            width: 164px;
+            height: 164px;
+            left: 0;
+            top: 0;
+            opacity: 0.95;
+        }
+
+        .shape-2 {
+            width: 118px;
+            height: 118px;
+            right: 0;
+            bottom: 16px;
+            background: var(--dark);
+        }
+
+        .shape-3 {
+            width: 88px;
+            height: 88px;
+            right: 46px;
+            top: 46px;
+            background: var(--light);
+            border: 10px solid var(--primary);
+        }
+
+        section {
+            scroll-margin-top: 90px;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 44px;
+        }
+
+        .section-header h2 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--dark);
+            font-size: clamp(2rem, 4vw, 3.25rem);
+            line-height: 1;
+            margin-bottom: 14px;
+        }
+
+        .section-header p {
+            color: #64748B;
+            font-size: 1.05rem;
+        }
+
+        .story-video,
+        .about,
+        .breaking-news,
+        .projects,
+        .contact {
+            padding: 92px 0;
+        }
+
+        .story-video {
+            background: #fff8d8;
+            position: relative;
+        }
+
+        .story-video::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0)),
+                radial-gradient(circle at 12% 15%, rgba(255, 107, 107, 0.16), transparent 26%);
+            pointer-events: none;
+        }
+
+        .story-grid {
+            position: relative;
+            display: grid;
+            grid-template-columns: minmax(0, 0.72fr) minmax(320px, 1.28fr);
+            gap: 42px;
+            align-items: center;
+        }
+
+        .story-copy h2 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--dark);
+            font-size: clamp(2.1rem, 4vw, 4rem);
+            line-height: 1;
+            margin-bottom: 18px;
+        }
+
+        .story-copy p {
+            color: #475569;
+            font-size: 1.05rem;
+            margin-bottom: 22px;
+        }
+
+        .story-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--dark);
+            background: rgba(255, 204, 0, 0.75);
+            border: 1px solid rgba(15, 17, 23, 0.08);
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .story-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .story-highlights span {
+            border: 1px solid rgba(15, 17, 23, 0.12);
+            border-radius: 999px;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.92rem;
+        }
+
+        .video-frame {
+            position: relative;
+            border-radius: 22px;
+            padding: 10px;
+            background: linear-gradient(135deg, var(--dark), #2b3241);
+            box-shadow: 0 30px 70px rgba(15, 17, 23, 0.24);
+        }
+
+        .video-frame::after {
+            content: '';
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            right: -22px;
+            top: -22px;
+            border-radius: 24px;
+            background: var(--primary);
+            z-index: 0;
+        }
+
+        .video-frame video {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 14px;
+            background: #000;
+        }
+
+        .about {
+            background: var(--light);
+        }
+
+        .about-grid,
+        .projects-grid,
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .about-card,
+        .project-card,
+        .contact-form,
+        .contact-info {
+            border: 1px solid rgba(15, 17, 23, 0.08);
+            background: var(--light);
+            border-radius: 18px;
+            box-shadow: 0 18px 45px rgba(15, 17, 23, 0.07);
+        }
+
+        .about-card {
+            padding: 30px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .about-card:hover,
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 55px rgba(15, 17, 23, 0.1);
+        }
+
+        .card-icon,
+        .contact-item > i {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            background: rgba(255, 204, 0, 0.2);
+            color: var(--dark);
+            margin-bottom: 18px;
+            font-size: 1.2rem;
+        }
+
+        .about-card h3,
+        .project-content h3,
+        .contact-item h4,
+        .footer-section h4 {
+            color: var(--dark);
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 10px;
+        }
+
+        .projects {
+            background: #F8FAFC;
+        }
+
+        .project-card {
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .project-image {
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            background: #E2E8F0;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.04);
+        }
+
+        .project-content {
+            padding: 24px;
+        }
+
+        .project-content p {
+            margin-bottom: 18px;
+        }
+
+        .project-link {
+            color: var(--dark);
+            font-weight: 700;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .breaking-news {
+            background:
+                radial-gradient(circle at 84% 18%, rgba(255, 204, 0, 0.2), transparent 28%),
+                linear-gradient(135deg, #0F1117 0%, #1A1F2E 100%);
+            color: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .breaking-news::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+            background-size: 44px 44px;
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
+            pointer-events: none;
+        }
+
+        .breaking-container {
+            position: relative;
+            width: min(1180px, calc(100% - 40px));
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(280px, 0.95fr) minmax(320px, 1.05fr);
+            gap: 34px;
+            align-items: center;
+        }
+
+        .breaking-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            align-items: end;
+        }
+
+        .gallery-item {
+            cursor: pointer;
+        }
+
+        .photo-frame {
+            border-radius: 18px;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+            transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+        }
+
+        .gallery-item.active .photo-frame,
+        .gallery-item:hover .photo-frame {
+            transform: translateY(-8px);
+            background: rgba(255, 204, 0, 0.14);
+            border-color: rgba(255, 204, 0, 0.45);
+        }
+
+        .polaroid {
+            overflow: hidden;
+            border-radius: 12px;
+            background: var(--light);
+        }
+
+        .gallery-photo {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+        }
+
+        .photo-caption {
+            color: var(--dark);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
+            font-size: 0.78rem;
+            text-align: center;
+            padding: 10px 8px;
+        }
+
+        .breaking-ticker {
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            padding: 26px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+        }
+
+        .ticker-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .ticker-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--dark);
+            background: var(--primary);
+            border-radius: 999px;
+            padding: 9px 14px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
+            font-size: 0.86rem;
+        }
+
+        .ticker-datetime {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.82rem;
+        }
+
+        .ticker-content {
+            position: relative;
+            min-height: 170px;
+        }
+
+        .news-item {
+            display: none;
+        }
+
+        .news-item.active {
+            display: block;
+        }
+
+        .news-link {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 16px;
+            align-items: center;
+            color: var(--light);
+        }
+
+        .news-badge,
+        .news-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 999px;
+            padding: 8px 12px;
+            background: rgba(255, 204, 0, 0.14);
+            color: var(--primary);
+            border: 1px solid rgba(255, 204, 0, 0.28);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
+            font-size: 0.78rem;
+            white-space: nowrap;
+        }
+
+        .news-title {
+            color: var(--light);
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1.45rem, 3vw, 2.55rem);
+            line-height: 1.05;
+            font-weight: 800;
+        }
+
+        .news-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
+        }
+
+        .ticker-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            margin-top: 26px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .ticker-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--light);
+            cursor: pointer;
+            transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+        }
+
+        .ticker-btn:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-2px);
+        }
+
+        .ticker-indicators {
+            display: flex;
+            gap: 8px;
+        }
+
+        .ticker-indicator {
+            width: 10px;
+            height: 10px;
+            border: 0;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.28);
+            cursor: pointer;
+        }
+
+        .ticker-indicator.active {
+            width: 28px;
+            background: var(--primary);
+        }
+
+        .project-stats {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(15, 17, 23, 0.08);
+        }
+
+        .stat {
+            border-radius: 14px;
+            background: #FFF8D8;
+            padding: 12px;
+        }
+
+        .stat-number {
+            display: block;
+            color: var(--dark);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .stat-label {
+            display: block;
+            color: #64748B;
+            font-size: 0.78rem;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .projects-cta,
+        .team-cta,
+        .partners-cta {
+            text-align: center;
+            margin-top: 34px;
+        }
+
+        .cta-button.btn-secondary {
+            color: var(--dark);
+            background: var(--light);
+            border: 1px solid rgba(15, 17, 23, 0.12);
+            box-shadow: 0 14px 28px rgba(15, 17, 23, 0.08);
+        }
+
+        .hidden-project,
+        .hidden-member,
+        .hidden-partner {
+            display: none;
+        }
+
+        .events,
+        .team,
+        .partners {
+            padding: 92px 0;
+        }
+
+        .events,
+        .partners {
+            background: var(--light);
+        }
+
+        .team {
+            background: #F8FAFC;
+        }
+
+        .events-container {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .event-card,
+        .team-member,
+        .partner-logo {
+            border: 1px solid rgba(15, 17, 23, 0.08);
+            background: var(--light);
+            border-radius: 18px;
+            box-shadow: 0 18px 45px rgba(15, 17, 23, 0.07);
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .event-card:hover,
+        .team-member:hover,
+        .partner-logo:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 55px rgba(15, 17, 23, 0.1);
+        }
+
+        .event-image {
+            position: relative;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            background: #E2E8F0;
+        }
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .event-date {
+            position: absolute;
+            left: 16px;
+            top: 16px;
+            min-width: 62px;
+            border-radius: 14px;
+            background: var(--primary);
+            color: var(--dark);
+            text-align: center;
+            padding: 8px 10px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
+            box-shadow: 0 10px 24px rgba(15, 17, 23, 0.2);
+        }
+
+        .date-day {
+            display: block;
+            font-size: 1.45rem;
+            line-height: 1;
+        }
+
+        .date-month {
+            display: block;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+        }
+
+        .event-content {
+            padding: 24px;
+        }
+
+        .event-content h3 {
+            color: var(--dark);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.28rem;
+            margin-bottom: 12px;
+        }
+
+        .event-info {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            color: #64748B;
+            font-size: 0.92rem;
+            margin-bottom: 8px;
+        }
+
+        .event-info i {
+            color: var(--primary-dark);
+            width: 16px;
+        }
+
+        .event-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            margin-top: 18px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: var(--dark);
+            color: var(--light);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            transition: transform 0.25s ease, background 0.25s ease;
+        }
+
+        .event-button:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-2px);
+        }
+
+        .team-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 34px;
+        }
+
+        .team-tab {
+            border: 1px solid rgba(15, 17, 23, 0.1);
+            background: var(--light);
+            color: var(--dark);
+            border-radius: 999px;
+            padding: 11px 18px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+        }
+
+        .team-tab:hover,
+        .team-tab.active {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-2px);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 24px;
+        }
+
+        .member-image {
+            aspect-ratio: 1 / 1.05;
+            overflow: hidden;
+            background: #E2E8F0;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .member-info h3 {
+            color: var(--dark);
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 5px;
+        }
+
+        .member-info p {
+            color: #64748B;
+            font-weight: 600;
+        }
+
+        .member-social {
+            display: flex;
+            justify-content: center;
+            margin-top: 14px;
+        }
+
+        .member-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 999px;
+            background: var(--dark);
+            color: var(--light);
+            transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+        }
+
+        .member-social a:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-2px);
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+            gap: 18px;
+        }
+
+        .partner-logo {
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+        }
+
+        .partner-logo img {
+            max-height: 76px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .contact {
+            background: var(--dark);
+        }
+
+        .contact .section-header h2 {
+            color: var(--light);
+        }
+
+        .contact .section-header p {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 0.86fr 1.14fr;
+            gap: 28px;
+            align-items: start;
+        }
+
+        .contact-info,
+        .contact-form {
+            padding: 30px;
+        }
+
+        .contact-item {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 16px;
+            align-items: start;
+            margin-bottom: 22px;
+        }
+
+        .contact-item > i {
+            margin-bottom: 0;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding-top: 8px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 999px;
+            background: var(--dark);
+            color: var(--light);
+            transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-2px);
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            border: 1px solid #CBD5E1;
+            border-radius: 12px;
+            padding: 14px 15px;
+            font: inherit;
+            color: var(--dark);
+            outline: none;
+            transition: border 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-dark);
+            box-shadow: 0 0 0 4px rgba(255, 204, 0, 0.16);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .footer {
+            background: #07080d;
+            color: rgba(255, 255, 255, 0.76);
+            padding: 58px 0 24px;
+        }
+
+        .footer-grid {
+            margin-bottom: 34px;
+        }
+
+        .footer-section h4 {
+            color: var(--light);
+        }
+
+        .footer-section li + li {
+            margin-top: 8px;
+        }
+
+        .footer-section a:hover,
+        .footer-bottom a {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: var(--light);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                gap: 0;
+                border-top: 2px solid var(--gray-light);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: rotate(-45deg) translate(-8px, 8px);
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: rotate(45deg) translate(-7px, -7px);
+            }
+
+            .nav-container {
+                padding: 0 20px;
+            }
+
+            .nav-item {
+                width: 100%;
+            }
+
+            .nav-link {
+                display: block;
+                padding: 16px 20px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 112px 0 58px;
+                background: linear-gradient(155deg, #0f1117 0%, #161b26 72%, #2b3241 100%);
+            }
+
+            .hero-content,
+            .story-grid,
+            .breaking-container,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                gap: 34px;
+            }
+
+            .hero-title {
+                font-size: clamp(2.45rem, 12vw, 4.2rem);
+            }
+
+            .hero-visual {
+                min-height: 300px;
+            }
+
+            .hero-visual::before {
+                inset: 24px 10px 10px 24px;
+                border-radius: 24px;
+            }
+
+            .shape-1 {
+                width: 104px;
+                height: 104px;
+            }
+
+            .shape-2 {
+                width: 78px;
+                height: 78px;
+            }
+
+            .shape-3 {
+                width: 62px;
+                height: 62px;
+            }
+
+            .story-video,
+            .about,
+            .breaking-news,
+            .projects,
+            .events,
+            .team,
+            .partners,
+            .contact {
+                padding: 64px 0;
+            }
+
+            .about-grid,
+            .projects-grid,
+            .events-container,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .breaking-gallery {
+                grid-template-columns: repeat(3, minmax(120px, 1fr));
+                overflow-x: auto;
+                padding-bottom: 12px;
+            }
+
+            .breaking-ticker {
+                padding: 20px;
+            }
+
+            .ticker-header,
+            .news-link {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .ticker-datetime {
+                align-items: flex-start;
+            }
+
+            .ticker-content {
+                min-height: 230px;
+            }
+
+            .video-frame::after {
+                width: 74px;
+                height: 74px;
+                right: -10px;
+                top: -10px;
+            }
+
+            .footer-bottom {
+                display: block;
+            }
+
+            .footer-bottom p + p {
+                margin-top: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/logo.webp" alt="Enactus Damanhour">
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#story" class="nav-link">Story</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#news" class="nav-link">News</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="#events" class="nav-link">Events</a></li>
+                <li class="nav-item"><a href="#team" class="nav-link">Team</a></li>
+                <li class="nav-item"><a href="#partners" class="nav-link">Partners</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link donate-btn">Contact</a></li>
+            </ul>
+            <button class="hamburger" aria-label="Toggle navigation menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Transform Lives Through<br><span class="gradient-text">Entrepreneurial Action</span></h1>
+                <p class="hero-subtitle">Empowering student-led initiatives at Damanhour University to create sustainable social impact through innovation</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">Explore Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-shape shape-1"></div>
+                <div class="hero-shape shape-2"></div>
+                <div class="hero-shape shape-3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Video Section -->
+    <section id="story" class="story-video">
+        <div class="container story-grid">
+            <div class="story-copy">
+                <span class="story-kicker"><i class="fas fa-play"></i> Enactus in motion</span>
+                <h2>See the energy behind the impact</h2>
+                <p>Student ideas, teamwork, and entrepreneurial action come together to build sustainable solutions for real communities.</p>
+                <div class="story-highlights" aria-label="Video highlights">
+                    <span>Student-led</span>
+                    <span>Impact-focused</span>
+                    <span>Damanhour University</span>
+                </div>
+            </div>
+            <div class="video-frame">
+                <video controls preload="metadata" playsinline aria-label="Enactus Damanhour video">
+                    <source src="images/WhatsApp Video 2026-05-06 at 3.00.51 AM.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Enactus Damanhour</h2>
+                <p>Student-led entrepreneurship for sustainable social impact</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>Creative solutions to real-world problems through entrepreneurial thinking</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community</h3>
+                    <p>Building networks of passionate students creating positive change</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Impact</h3>
+                    <p>Measurable outcomes improving lives and supporting sustainable development</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breaking News Section -->
+    <section id="news" class="breaking-news" role="region" aria-label="Breaking News">
+        <div class="breaking-container">
+            <div class="breaking-gallery">
+                <div class="gallery-item active" data-news-id="1">
+                    <div class="photo-frame">
+                        <div class="polaroid">
+                            <img src="images/got.jpeg" alt="Enactus team on GOT Day" loading="lazy" class="gallery-photo">
+                            <div class="photo-caption">GOT Day</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-news-id="2">
+                    <div class="photo-frame">
+                        <div class="polaroid">
+                            <img src="images/breaking-news-bg.jpeg" alt="Damanhour University collaboration" loading="lazy" class="gallery-photo">
+                            <div class="photo-caption">Damanhour University</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-news-id="3">
+                    <div class="photo-frame">
+                        <div class="polaroid">
+                            <img src="images/black-bear.jpeg" alt="Enactus team partnership signing" loading="lazy" class="gallery-photo">
+                            <div class="photo-caption">Partnership Signing</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="breaking-ticker">
+                <div class="ticker-header">
+                    <div class="ticker-label">
+                        <i class="fas fa-newspaper" aria-hidden="true"></i>
+                        <span>ENACTUS BREAKING NEWS</span>
+                    </div>
+                    <div class="ticker-datetime">
+                        <span id="current-date"></span>
+                        <span id="current-time"></span>
+                    </div>
+                </div>
+
+                <div class="ticker-content">
+                    <div class="news-item active" data-news-id="1">
+                        <a href="#" class="news-link">
+                            <span class="news-badge"><i class="fas fa-trophy" aria-hidden="true"></i> AWARD</span>
+                            <span class="news-title">Looking forward seeing you inshallah on January 25th isa</span>
+                            <span class="news-meta"><span class="news-date">25 Jan</span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+                        </a>
+                    </div>
+                    <div class="news-item" data-news-id="2">
+                        <a href="https://www.facebook.com/share/p/1XasuYcMBB/?mibextid=wwXIfr" target="_blank" class="news-link">
+                            <span class="news-badge"><i class="fas fa-graduation-cap" aria-hidden="true"></i> TRAINING</span>
+                            <span class="news-title">Enactus Damanhour successfully cooperates with Damanhour University on future projects</span>
+                            <span class="news-meta"><span class="news-date">2 days ago</span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+                        </a>
+                    </div>
+                    <div class="news-item" data-news-id="3">
+                        <a href="https://www.facebook.com/share/p/1DcuASyGvh/" target="_blank" class="news-link">
+                            <span class="news-badge"><i class="fas fa-handshake" aria-hidden="true"></i> PARTNERSHIP</span>
+                            <span class="news-title">New partnership: Enactus Damanhour collaborates with Black-Bear Burger</span>
+                            <span class="news-meta"><span class="news-date">1 week ago</span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="ticker-controls">
+                    <button class="ticker-btn prev" aria-label="Previous news"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                    <div class="ticker-indicators">
+                        <button class="ticker-indicator active" data-news-id="1" aria-label="Show news 1"></button>
+                        <button class="ticker-indicator" data-news-id="2" aria-label="Show news 2"></button>
+                        <button class="ticker-indicator" data-news-id="3" aria-label="Show news 3"></button>
+                    </div>
+                    <button class="ticker-btn next" aria-label="Next news"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Enactus Damanhour Projects</h2>
+                <p>Student-led social entrepreneurship initiatives creating real impact in Egyptian communities</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image"><img src="images/saadny.jpg" alt="Saadany Project - Empowering deaf and mute individuals through job opportunities" loading="lazy"></div>
+                    <div class="project-content">
+                        <h3>Saadany - Enactus Damanhour</h3>
+                        <p>Saadany empowers deaf and mute individuals by connecting them with real job opportunities. We bridge the gap to the labor market in sectors like manufacturing and hospitality with skill-building content. Our platform prepares them for employment and entrepreneurship.</p>
+                        <div class="project-stats"><div class="stat"><span class="stat-number">18,000+</span><span class="stat-label">People Impacted</span></div><div class="stat"><span class="stat-number">15</span><span class="stat-label">Villages Reached</span></div></div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image"><img src="images/margosa.jpg" alt="Margosa Project - Natural pesticides from neem extracts for sustainable farming" loading="lazy"></div>
+                    <div class="project-content">
+                        <h3>Margosa - Enactus Damanhour</h3>
+                        <p>Margosa creates natural pesticides from neem extracts, offering farmers a safe, eco-friendly alternative to chemicals. Our solutions protect crops and soil health while supporting sustainable farming practices in Egypt.</p>
+                        <div class="project-stats"><div class="stat"><span class="stat-number">84,000+</span><span class="stat-label">People Impacted</span></div><div class="stat"><span class="stat-number">45</span><span class="stat-label">Businesses Launched</span></div></div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image"><img src="images/vetsea.jpg" alt="VetSea Project - Natural algae-based treatments for cattle health" loading="lazy"></div>
+                    <div class="project-content">
+                        <h3>VetSea - Enactus Damanhour</h3>
+                        <p>VetSea protects cattle from parasites using natural algae-based treatments instead of chemicals. Our solution improves animal health and promotes sustainable livestock farming by replacing harmful drugs in Egyptian farms.</p>
+                        <div class="project-stats"><div class="stat"><span class="stat-number">120+</span><span class="stat-label">Farmers Supported</span></div><div class="stat"><span class="stat-number">35%</span><span class="stat-label">Yield Increase</span></div></div>
+                    </div>
+                </div>
+                <div class="project-card hidden-project">
+                    <div class="project-image"><img src="images/ecoplast.jpg" alt="Ecoplast Project - Recycling plastic waste into eco-friendly bricks" loading="lazy"></div>
+                    <div class="project-content">
+                        <h3>Ecoplast - Enactus Damanhour</h3>
+                        <p>Ecoplast tackles plastic waste by recycling it into new products like eco-friendly bricks. We empower communities by creating jobs and providing technical training, increasing workers' income by 350%.</p>
+                        <div class="project-stats"><div class="stat"><span class="stat-number">600+</span><span class="stat-label">Jobs Created</span></div><div class="stat"><span class="stat-number">350%</span><span class="stat-label">Income Increase</span></div></div>
+                    </div>
+                </div>
+                <div class="project-card hidden-project">
+                    <div class="project-image"><img src="images/organalia.jpg" alt="Organalia Project - Organic fertilizer from Nile rose and animal waste" loading="lazy"></div>
+                    <div class="project-content">
+                        <h3>Organalia - Enactus Damanhour</h3>
+                        <p>Organalia produces organic fertilizer from Nile rose and animal waste to reduce environmental impact. We empower communities by creating jobs and providing technical training.</p>
+                        <div class="project-stats"><div class="stat"><span class="stat-number">300+</span><span class="stat-label">Lives Saved</span></div><div class="stat"><span class="stat-number">27</span><span class="stat-label">Village Reached</span></div></div>
+                    </div>
+                </div>
+                <div class="project-card hidden-project">
+                    <div class="project-image"><img src="images/brickstick.jpg" alt="Brickstick Project - Transforming plastic waste into construction materials" loading="lazy"></div>
+                    <div class="project-content">
+                        <h3>Brickstick - Enactus Damanhour</h3>
+                        <p>Brickstick transforms plastic waste into eco-friendly bricks, offering a sustainable construction material. We partner with factories to scale production in Egypt.</p>
+                        <div class="project-stats"><div class="stat"><span class="stat-number">80,000+</span><span class="stat-label">Plastic Bricks</span></div><div class="stat"><span class="stat-number">160+</span><span class="stat-label">Families Impacting</span></div></div>
+                    </div>
+                </div>
+                <div class="project-card hidden-project">
+                    <div class="project-image"><img src="images/mushraws.jpg" alt="Mushraws Project - Transforming rice straw waste into valuable products" loading="lazy"></div>
+                    <div class="project-content">
+                        <h3>Mushraws - Enactus Damanhour</h3>
+                        <p>Mushraws transforms rice straw waste into valuable products like mushrooms, animal feed, and organic fertilizer. Our zero-waste model prevents harmful burning in Egyptian farms.</p>
+                        <div class="project-stats"><div class="stat"><span class="stat-number">230%</span><span class="stat-label">Income Increase</span></div><div class="stat"><span class="stat-number">210</span><span class="stat-label">Families Impacting</span></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="projects-cta">
+                <a href="#projects" class="btn btn-secondary cta-button" id="viewAllBtn">View All Enactus Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events">
+        <div class="container">
+            <div class="section-header">
+                <h2>Enactus Damanhour Events & Activities</h2>
+                <p>Join Enactus Damanhour University in our upcoming events and workshops</p>
+            </div>
+            <div class="events-container">
+                <div class="event-card">
+                    <div class="event-image"><img src="images/leadership.jpg" alt="Techne Summit Alexandria with Enactus Damanhour" loading="lazy"><div class="event-date"><span class="date-day">29</span><span class="date-month">Nov</span></div></div>
+                    <div class="event-content">
+                        <h3>Enactus Damanhour Leadership Training</h3>
+                        <p class="event-info"><i class="fas fa-clock"></i> 10:00 AM - 5:00 PM</p>
+                        <p class="event-info"><i class="fas fa-calendar"></i> 29 Nov</p>
+                        <p class="event-info"><i class="fas fa-map-marker-alt"></i> BUE, Cairo</p>
+                        <p>Enactus Damanhour at BUE: A day of learning, connection, and growth with inspiring collaboration between different Enactus teams.</p>
+                        <a href="https://www.linkedin.com/posts/enactus-damnhour-university_enactusabrdu-enactusdamanhour-enactusegypt-activity-7400944725010157568-VIMA?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE7N51kBJrktJeQCzJ5pBm0NMAfbGv_mNNI" class="event-button" target="_blank">Learn More About Enactus Event</a>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-image"><img src="images/InSolution partnership .jpg" alt="InSolution Event by Enactus Damanhour" loading="lazy"><div class="event-date"><span class="date-day">19</span><span class="date-month">Nov</span></div></div>
+                    <div class="event-content">
+                        <h3>InSolution - Enactus Damanhour</h3>
+                        <p class="event-info"><i class="fas fa-clock"></i> Every Wednesday From 3:00 PM - 5:00 PM</p>
+                        <p class="event-info"><i class="fas fa-calendar"></i> From 19 Nov</p>
+                        <p class="event-info"><i class="fas fa-map-marker-alt"></i> Sharks, Damanhour</p>
+                        <p>Business Skills Program in collaboration with In Solution covering Strategy, Marketing, Sales, Leadership, Finance, Innovation and more.</p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScE0VH22sMIlUVEHOe9X2FbrQjbqdwQxwLSu-Vst_UFsn-7Qg/viewform?usp=dialog" class="event-button" target="_blank">Register for Enactus Event</a>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-image"><img src="images/coderatechBootcamp.jpg" alt="Community Impact Day by Enactus Damanhour" loading="lazy"><div class="event-date"><span class="date-day">12</span><span class="date-month">Oct</span></div></div>
+                    <div class="event-content">
+                        <h3>CoderaTech Bootcamp - Enactus Damanhour</h3>
+                        <p class="event-info"><i class="fas fa-clock"></i> Every Sunday 3:00 PM - 5:00 PM</p>
+                        <p class="event-info"><i class="fas fa-calendar"></i> From 12 Oct Until 2 Nov</p>
+                        <p class="event-info"><i class="fas fa-map-marker-alt"></i> Sharks, Damanhour</p>
+                        <p>CodeRatech Bootcamp trained 50 people in web development, graduating 40 with industry-ready skills in HTML, CSS, and JavaScript.</p>
+                        <a href="https://www.linkedin.com/posts/enactus-damnhour-university_enactusdamanhour-coderatech-bootcamp-activity-7382734451459522561-_Mtn?utm_source=share&utm_medium=member_android&rcm=ACoAAFOv5ZsBmiG8a25Ez6PgW-NZoyWq5Nk9pTQ" class="event-button" target="_blank">Learn About Enactus Event</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <div class="section-header">
+                <h2>Enactus Damanhour Team</h2>
+                <p>The passionate students and advisors behind Enactus Damanhour University impact</p>
+            </div>
+            <div class="team-container">
+                <div class="team-tabs">
+                    <button class="team-tab active" data-category="leaders">Enactus Team Leaders</button>
+                    <button class="team-tab" data-category="all-members">All Enactus Team</button>
+                    <button class="team-tab" data-category="advisors">Enactus Advisors</button>
+                </div>
+                <div class="team-grid">
+                    <div class="team-member" data-category="leaders"><div class="member-image"><img src="images/president.jpg" alt="Mohamed Zewail - Enactus Damanhour Team President" loading="lazy"></div><div class="member-info"><h3>Mohamed Zewail</h3><p>Enactus Team President</p><div class="member-social"><a href="https://www.linkedin.com/in/mohamed-zewail-b25910320" target="_blank" aria-label="LinkedIn profile of Mohamed Zewail"><i class="fab fa-linkedin"></i></a></div></div></div>
+                    <div class="team-member" data-category="leaders"><div class="member-image"><img src="images/naeem.jpg" alt="Mahmoud Naeem - Enactus Damanhour Vice President" loading="lazy"></div><div class="member-info"><h3>Mahmoud Naeem</h3><p>Enactus Vice President</p><div class="member-social"><a href="https://www.linkedin.com/in/mahmoud-naeem-3aa47927b" target="_blank" aria-label="LinkedIn profile of Mahmoud Naeem"><i class="fab fa-linkedin"></i></a></div></div></div>
+                    <div class="team-member" data-category="leaders"><div class="member-image"><img src="images/yasmin.jpg" alt="Yasmin Ali - Enactus Damanhour Vice President" loading="lazy"></div><div class="member-info"><h3>Yasmin Ali</h3><p>Enactus Vice President</p><div class="member-social"><a href="https://www.linkedin.com/in/yasmin-aly-951836317" target="_blank" aria-label="LinkedIn profile of Yasmin Ali"><i class="fab fa-linkedin"></i></a></div></div></div>
+                    <div class="team-member hidden-member" data-category="leaders"><div class="member-image"><img src="images/aboalkhair.jpg" alt="Saif Aboalkhair - Enactus Damanhour Head Project" loading="lazy"></div><div class="member-info"><h3>Saif Aboalkhair</h3><p>Enactus Head Project</p><div class="member-social"><a href="#" aria-label="LinkedIn profile of Saif Aboalkhair"><i class="fab fa-linkedin"></i></a></div></div></div>
+                    <div class="team-member" data-category="leaders"><div class="member-image"><img src="images/habiba.jpg" alt="Habiba Eltelwany - Enactus Damanhour Head Multimedia" loading="lazy"></div><div class="member-info"><h3>Habiba Eltelwany</h3><p>Enactus Head Multimedia</p><div class="member-social"><a href="https://www.linkedin.com/in/habiba-eltlwany-616231254" target="_blank" aria-label="LinkedIn profile of Habiba Eltetwany"><i class="fab fa-linkedin"></i></a></div></div></div>
+                    <div class="team-member hidden-member" data-category="leaders"><div class="member-image"><img src="images/samira.jpg" alt="Samira Elshaer - Enactus Damanhour Head HR" loading="lazy"></div><div class="member-info"><h3>Samira Elshaer</h3><p>Enactus Head HR</p><div class="member-social"><a href="https://eg.linkedin.com/in/samira-alaa-75b71427b" target="_blank" aria-label="LinkedIn profile of Samira Elshaer"><i class="fab fa-linkedin"></i></a></div></div></div>
+                    <div class="team-member hidden-member" data-category="leaders"><div class="member-image"><img src="images/fayez.jpg" alt="Fayez kenawy - Enactus Damanhour Head Marketing" loading="lazy"></div><div class="member-info"><h3>Fayez kenawy</h3><p>Enactus Head Marketing</p><div class="member-social"><a href="https://www.linkedin.com/in/fayez-kenawy-79113033b" target="_blank" aria-label="LinkedIn profile of Fayez kenawy"><i class="fab fa-linkedin"></i></a></div></div></div>
+                    <div class="team-member hidden-member" data-category="leaders"><div class="member-image"><img src="images/menna.jpg" alt="Menna Khater - Enactus Damanhour Head Presentation" loading="lazy"></div><div class="member-info"><h3>Menna Khater</h3><p>Enactus Head Presentation</p><div class="member-social"><a href="https://www.linkedin.com/in/menna-khater-1132a3248" target="_blank" aria-label="LinkedIn profile of Menna Khater"><i class="fab fa-linkedin"></i></a></div></div></div>
+                    <div class="team-member hidden-member" data-category="leaders"><div class="member-image"><img src="images/SAMA KHALED PR HEAD.png" alt="Sama Khaled - Enactus Damanhour Head PR" loading="lazy"></div><div class="member-info"><h3>Sama Khaled</h3><p>Enactus Head PR</p><div class="member-social"><a href="#" aria-label="LinkedIn profile of Sama Khaled"><i class="fab fa-linkedin"></i></a></div></div></div>
+                    <div class="team-member" data-category="advisors"><div class="member-image"><img src="images/advisor.jpg" alt="Dr. Khaled Rohouma - Enactus Damanhour Faculty Advisor" loading="lazy"></div><div class="member-info"><h3>Dr. Khaled Rohouma</h3><p>Enactus Faculty Advisor</p><div class="member-social"><a href="https://www.linkedin.com/in/khaled-ruhoma-25825477?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn profile of Dr. Khaled Rohouma"><i class="fab fa-linkedin"></i></a></div></div></div>
+                    <div class="team-member" data-category="advisors"><div class="member-image"><img src="images/advisor2.jpg" alt="Abdelrahman Shaheen - Enactus Team Advisor" loading="lazy"></div><div class="member-info"><h3>Abdelrahman Shaheen</h3><p>Enactus Team Advisor</p><div class="member-social"><a href="https://www.linkedin.com/in/abdelrahman-shaheen?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" aria-label="LinkedIn profile of Abdelrahman Shaheen"><i class="fab fa-linkedin"></i></a></div></div></div>
+                </div>
+            </div>
+            <div class="team-cta">
+                <a href="#team" class="btn btn-secondary cta-button" id="viewAllTeamBtn">View All Enactus Team</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="partners">
+        <div class="container">
+            <div class="section-header">
+                <h2>Enactus Damanhour Partners & Sponsors</h2>
+                <p>Organizations supporting Enactus Damanhour University mission and impact</p>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-logo"><img src="images/sharks.jpg" alt="Sharks - Enactus Damanhour Partner" loading="lazy"></div>
+                <div class="partner-logo"><img src="images/mia-robotics.jpeg" alt="MIA Robotics - Enactus Damanhour Partner" loading="lazy"></div>
+                <div class="partner-logo"><img src="images/black-bear.jpeg" alt="Black Bear - Enactus Damanhour Partner" loading="lazy"></div>
+                <div class="partner-logo"><img src="images/xacademia.jpg" alt="XAcademia - Enactus Damanhour Partner" loading="lazy"></div>
+                <div class="partner-logo"><img src="images/creativa.jpg" alt="Creativa - Enactus Damanhour Partner" loading="lazy"></div>
+                <div class="partner-logo"><img src="images/prse.jpg" alt="PRSE - Enactus Damanhour Partner" loading="lazy"></div>
+                <div class="partner-logo"><img src="images/oxford.jpg" alt="Oxford - Enactus Damanhour Partner" loading="lazy"></div>
+                <div class="partner-logo hidden-partner"><img src="images/coderaTech.jpg" alt="Codera Tech - Enactus Damanhour Partner" loading="lazy"></div>
+                <div class="partner-logo hidden-partner"><img src="images/britchCouncil.jpg" alt="British Council - Enactus Damanhour Partner" loading="lazy"></div>
+                <div class="partner-logo hidden-partner"><img src="images/europeanUnion.jpg" alt="European Union - Enactus Damanhour Partner" loading="lazy"></div>
+                <div class="partner-logo hidden-partner"><img src="images/german.jpg" alt="German Embassy - Enactus Damanhour Partner" loading="lazy"></div>
+                <div class="partner-logo hidden-partner"><img src="images/giz.jpg" alt="GIZ - Enactus Damanhour Partner" loading="lazy"></div>
+                <div class="partner-logo hidden-partner"><img src="images/hermopoaita.jpg" alt="Hermopoaita - Enactus Damanhour Partner" loading="lazy"></div>
+                <div class="partner-logo hidden-partner"><img src="images/irc.jpg" alt="IRC - Enactus Damanhour Partner" loading="lazy"></div>
+                <div class="partner-logo hidden-partner"><img src="images/circle.jpg" alt="Circle - Enactus Damanhour Partner" loading="lazy"></div>
+                <div class="partner-logo hidden-partner"><img src="images/techne.jpg" alt="Techne - Enactus Damanhour Partner" loading="lazy"></div>
+                <div class="partner-logo hidden-partner"><img src="images/Kahwawetamer.jpg" alt="Kahwawetamer - Enactus Damanhour Partner" loading="lazy"></div>
+                <div class="partner-logo hidden-partner"><img src="images/alrakwa.jpg" alt="Alrakwa - Enactus Damanhour Partner" loading="lazy"></div>
+                <div class="partner-logo hidden-partner"><img src="images/grandForce.jpg" alt="Grand Force - Enactus Damanhour Partner" loading="lazy"></div>
+            </div>
+            <div class="partners-cta">
+                <a href="#partners" class="btn btn-secondary cta-button" id="viewAllPartnersBtn">View All Enactus Partners</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get in Touch</h2>
+                <p>Connect with Enactus Damanhour</p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Damanhour University, Damanhour, Egypt</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:enactus@du.edu.eg">enactus@du.edu.eg</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+201021722099">+20 102 172 2099</a></p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://facebook.com/DuEnactus" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com/enactus_du_" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/enactus-damanhour" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://tiktok.com/@enactus.damanhour" target="_blank" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required aria-label="Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required aria-label="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Subject" aria-label="Subject">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" required aria-label="Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#about">About Enactus</a></li>
+                        <li><a href="#projects">Our Projects</a></li>
+                        <li><a href="#story">Our Story</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#partners">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://facebook.com/DuEnactus" target="_blank">Facebook</a></li>
+                        <li><a href="https://instagram.com/enactus_du_" target="_blank">Instagram</a></li>
+                        <li><a href="https://linkedin.com/company/enactus-damanhour" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Enactus Damanhour University. All rights reserved. | <a href="admin/index.html">Admin Login</a></p>
+                <p>Designed &amp; Developed by <a href="https://mohamedelhemaly.github.io/portfolio/" target="_blank">Mohamed El-hemaly</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+
+</html>
